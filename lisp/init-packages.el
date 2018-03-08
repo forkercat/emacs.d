@@ -1,12 +1,18 @@
 
+
 ;; ------------------------ init-packages.el ----------------------------
 
 
  (when (>= emacs-major-version 24)
      (require 'package)
      (package-initialize)
-     (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-		      ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+     (setq package-archives '(
+         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
+         ("melpa-china" . "http://elpa.emacs-china.org/melpa/")
+         ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
+         ("melpa" . "http://melpa.org/packages/")
+         ("melpa-stable" . "http://stable.melpa.org/packages/")
+ )))
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
@@ -108,11 +114,14 @@
 
 ;; ido-mode
 (setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'guess)
+(setq ido-use-filename-at-point 'always)
+(setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)          
 (ido-mode 1)
 
 
+;; multiple-cursors
+(require 'multiple-cursors)
 
 
 
