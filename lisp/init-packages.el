@@ -61,14 +61,6 @@
 ;; ------------------------ package details ----------------------------
 
 
-;; melpa package
-;(require 'package)
-;(add-to-list 'package-archives
-;             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;(package-initialize)
-;(setq url-http-attempt-keepalives nil)
-
-
 ;; yasnippet
 ;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 ;(require 'yasnippet)
@@ -95,10 +87,7 @@
 
 
 ;; flycheck-pos-tip
-;(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
-
-;; comment
-;(global-set-key [?\C-c ?\C-/] 'comment-or-uncomment-region)
+(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
 
 ;; company
 (global-company-mode t)
@@ -122,6 +111,29 @@
 
 ;; multiple-cursors
 (require 'multiple-cursors)
+
+
+;; ace-jump-mode
+(add-to-list 'load-path "~/.emacs.d/plugins")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 
 
