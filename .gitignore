@@ -3,7 +3,8 @@
 auto-save-list
 recentf
 ac-comphist.dat
-
+.emacs.desktop
+.emacs.desktop.lock
 
 
 # except emacs
