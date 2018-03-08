@@ -1,4 +1,4 @@
-# my-emacs-config
+# emacs.d
 Welcome to use my emacs config
 
 
