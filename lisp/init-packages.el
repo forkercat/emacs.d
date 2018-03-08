@@ -1,12 +1,18 @@
 
+
 ;; ------------------------ init-packages.el ----------------------------
 
 
  (when (>= emacs-major-version 24)
      (require 'package)
      (package-initialize)
-     (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-		      ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+     (setq package-archives '(
+         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
+         ("melpa-china" . "http://elpa.emacs-china.org/melpa/")
+         ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
+         ("melpa" . "http://melpa.org/packages/")
+         ("melpa-stable" . "http://stable.melpa.org/packages/")
+ )))
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
@@ -55,14 +61,6 @@
 ;; ------------------------ package details ----------------------------
 
 
-;; melpa package
-;(require 'package)
-;(add-to-list 'package-archives
-;             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;(package-initialize)
-;(setq url-http-attempt-keepalives nil)
-
-
 ;; yasnippet
 ;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 ;(require 'yasnippet)
@@ -89,10 +87,7 @@
 
 
 ;; flycheck-pos-tip
-;(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
-
-;; comment
-;(global-set-key [?\C-c ?\C-/] 'comment-or-uncomment-region)
+(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
 
 ;; company
 (global-company-mode t)
@@ -108,11 +103,37 @@
 
 ;; ido-mode
 (setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'guess)
+(setq ido-use-filename-at-point 'always)
+(setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)          
 (ido-mode 1)
 
 
+;; multiple-cursors
+(require 'multiple-cursors)
+
+
+;; ace-jump-mode
+(add-to-list 'load-path "~/.emacs.d/plugins")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 
 
