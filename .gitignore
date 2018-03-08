@@ -1,0 +1,16 @@
+*~
+\#*\#
+auto-save-list
+recentf
+ac-comphist.dat
+
+
+
+# except emacs
+# !*emacs*
+
+# .emacs.d/
+
+# except readme.md
+# !README.md
+

@@ -1,0 +1,85 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Mar  8 08:59:12 2018
+;; Desktop file format version 206
+;; Emacs version 25.3.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23200 35552 725752 0) (desktop . "208") "chuck@junhaow-mac.local" nil nil ((((font-backend mac-ct) (fontsize . 0) (font . "-*-Menlo-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "wheat") (background-color . "black") (line-spacing) (left-fringe . 8) (right-fringe . 8) (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 0) (alpha) (fullscreen) (display . "junhaow-mac.local") (display-type . color) (background-mode . dark) (cursor-color . "#efefef") (visibility . t) (frameset--id . "3B70-1D2F-D7A8-9375") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (explicit-name) (tool-bar-position . top) (height . 43) (width . 85) (left . 407) (top . 159)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 9) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 60) (min-pixel-width . 80) (min-pixel-height-ignore . 30) (min-pixel-width-ignore . 72) (min-pixel-height-safe . 15) (min-pixel-width-safe . 16)) leaf (pixel-width . 711) (pixel-height . 630) (total-width . 88) (total-height . 42) (normal-height . 1.0) (normal-width . 1.0) (buffer ".emacs" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 3) (scroll-bars nil 2 t nil 0 nil) (vscroll . 0) (dedicated) (point . 638) (start . 375))) (((font-backend mac-ct) (fontsize . 0) (font . "-*-Menlo-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "wheat") (background-color . "black") (line-spacing) (left-fringe . 10) (right-fringe . 11) (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "thistle") (environment) (display . "junhaow-mac.local") (visibility) (tty-type . "xterm-256color") (tty . "/dev/tty") (modeline . t) (unsplittable) (frameset--id . "83A0-B10A-160A-4F05") (frameset--mini t . t) (minibuffer . t) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (explicit-name) (tool-bar-position . top) (height . 43) (width . 83) (left . 0) (top . 22)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 7) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 60) (min-pixel-width . 80) (min-pixel-height-ignore . 30) (min-pixel-width-ignore . 56) (min-pixel-height-safe . 15) (min-pixel-width-safe . 16)) leaf (pixel-width . 700) (pixel-height . 630) (total-width . 87) (total-height . 42) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected) (hscroll . 0) (fringes 10 11 nil) (margins nil) (scroll-bars nil 2 t nil 0 nil) (vscroll . 0) (dedicated) (point . 1) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("company" "cursor" "cur" "_" "colortheme" "minimap" "mini" "flycheck"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs" "~/Desktop/jiayi" "~/.emacs" "~/Desktop/aaa" "~/Desktop/" "~/Desktop/abc.c" "~/Desktop/abc.py" "~/Desktop/abc.c" "~/Desktop/abc/eee" "~/Desktop/abc" "~/Desktop/abc.py" "~/Desktop/note.el" "~/Desktop/*test*" "~/.emacs.d" "~/Desktop/c.c" "~/Desktop/parallel/pthread/histogram.c" "~/Desktop/parallel/pthread/a.c" "~/.emacs" "~/Desktop/parallel/pthread/a.c" "~/Desktop/parallel/pthread/" "~/Desktop/a.m" "~/Desktop/a.matlab" "~/Desktop/a.html" "~/.emacs" "~/Desktop/a.cpp" "~/.emacs"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/chuck/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(linum-mode company-mode)
+  638
+  '(636 nil)
+  nil
+  nil
+  '((tab-width . 4) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/chuck/Desktop/jiayi"
+  "jiayi"
+  'text-mode
+  '(linum-mode company-mode)
+  756
+  '(2341 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "*info*"
+  'Info-mode
+  '(linum-mode company-mode)
+  1138
+  '(1 nil)
+  t
+  '("/Applications/Emacs.app/Contents/Resources/info/emacs" "Top" ((history ("/Applications/Emacs.app/Contents/Resources/info/elisp" "Top" 68565) ("dir" "Top" 227))))
+  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t)))
+
+(desktop-create-buffer 206
+  "/Users/chuck/Desktop/note.el"
+  "note.el"
+  'emacs-lisp-mode
+  '(linum-mode company-mode)
+  2199
+  '(2199 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "Desktop"
+  'dired-mode
+  '(linum-mode company-mode)
+  1659
+  '(nil nil)
+  t
+  '("/Users/chuck/Desktop/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "chuck"
+  'dired-mode
+  '(linum-mode company-mode)
+  1982
+  '(nil nil)
+  t
+  '("/Users/chuck/")
+  nil)
+
