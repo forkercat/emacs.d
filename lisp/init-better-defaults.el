@@ -34,27 +34,6 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4 c-basic-offset 4)
 
-;;新建文件的编码方式
-(set-terminal-coding-system 'utf-8)
-
-;;写文件的编码方式  
-;;(set-buffer-file-coding-system 'gb2312)  
-(set-buffer-file-coding-system 'utf-8)  
-  
-;;新建文件的编码方式  
-;;(setq default-buffer-file-coding-system 'gb2312)  
-(setq default-buffer-file-coding-system 'utf-8)
-  
-;;终端方式的编码方式  
-(set-terminal-coding-system 'utf-8)  
-  
-;;键盘输入的编码方式  
-;;(set-keyboard-coding-system 'gb2312)   
-(set-keyboard-coding-system 'utf-8)   
-      
-;;读取或写入文件名的编码方式  
-(setq file-name-coding-system 'utf-8)   
-
 ;; restore current workplace
 (desktop-save-mode t)
 
@@ -81,6 +60,33 @@
 (delete-selection-mode t)
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+
+;; -------------- coding system ----------------
+
+
+;;新建文件的编码方式
+(set-terminal-coding-system 'utf-8)
+
+;;写文件的编码方式  
+;;(set-buffer-file-coding-system 'gb2312)  
+(set-buffer-file-coding-system 'utf-8)  
+  
+;;新建文件的编码方式  
+;;(setq default-buffer-file-coding-system 'gb2312)  
+(setq default-buffer-file-coding-system 'utf-8)
+  
+;;键盘输入的编码方式  
+;;(set-keyboard-coding-system 'gb2312)   
+(set-keyboard-coding-system 'utf-8)   
+      
+;;读取或写入文件名的编码方式  
+(setq file-name-coding-system 'utf-8)   
+
+;; 终端中文乱码??? 无法解决
+(set-terminal-coding-system 'utf-8)
+(modify-coding-system-alist 'process "*" 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
 
 
 ;; ------------------------ EOF ----------------------------
