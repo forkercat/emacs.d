@@ -1,6 +1,29 @@
 
 ;; ------------------------ init-better-defaults.el ----------------------------
 
+;; -------------- for org-mode ----------------
+;; 自动换行？？？ 不知道
+;; (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;; 直接在org下运行代码
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (R . t)
+   (ruby . t)
+   (ditaa . t)
+   (dot . t)
+   (octave . t)
+   (sqlite . t)
+   (perl . t)
+   (C . t)
+   ))
+
+;; -------------- ending of org config -------------
+
+
 ;;关闭烦人的出错时的提示音
 ;;(setq visible-bell t)
 
@@ -70,6 +93,14 @@
                                             ("xmail" "junhaowww@outlook.com")
                                             ("xname" "Junhao Wang")
                                             ))
+
+
+;; dired-mode
+(put 'dired-find-alternate-file 'disabled nil)
+;; 延迟加载
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 
 
 ;; -------------- coding system ----------------

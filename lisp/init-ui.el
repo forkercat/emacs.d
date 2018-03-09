@@ -32,18 +32,28 @@
 
 
 ;; Theme
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (company))))
-(custom-set-faces)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(defvar zenburn-override-colors-alist
+  '(
+    ("zenburn-bg+2"  . "#BFBFBF")))
+(load-theme 'zenburn t)
+
+
+;; (custom-set-variables
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+
+ ;; '(ansi-color-faces-vector
+   ;; [default default default italic underline success warning error])
+ ;; '(ansi-color-names-vector
+   ;; ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+;; '(custom-enabled-themes (quote (wheatgrass)))
+ ;; '(package-selected-packages (quote (company))))
+;; (custom-set-faces)
+
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -63,11 +73,11 @@
 
 
 ;; set cursor color
-(set-cursor-color "#efefef")
+(set-cursor-color "#FFFFFF")
 
 
 ;; background color
-(set-background-color "#000000")  ; black
+;; (set-background-color "#000000")  ; black
 
 
 
