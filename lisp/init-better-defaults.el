@@ -24,7 +24,7 @@
 (setq make-backup-files nil)
 
 ;;设置自动保存的目录
-;(setq backup-directory-alist '(("." . "~/.autosave")))
+;; (setq backup-directory-alist '(("." . "~/.autosave")))
 
 ;;允许emacs和外部其他程序的粘贴
 (setq x-select-enable-clipboard t)
@@ -64,6 +64,12 @@
 (global-auto-revert-mode t)
 
 
+;; abbrev-mode
+(setq-default abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+                                            ("xmail" "junhaowww@outlook.com")
+                                            ("xname" "Junhao Wang")
+                                            ))
 
 
 ;; -------------- coding system ----------------
@@ -75,15 +81,15 @@
 ;;写文件的编码方式  
 ;;(set-buffer-file-coding-system 'gb2312)  
 (set-buffer-file-coding-system 'utf-8)  
-  
+
 ;;新建文件的编码方式  
 ;;(setq default-buffer-file-coding-system 'gb2312)  
 (setq default-buffer-file-coding-system 'utf-8)
-  
+
 ;;键盘输入的编码方式  
 ;;(set-keyboard-coding-system 'gb2312)   
 (set-keyboard-coding-system 'utf-8)   
-      
+
 ;;读取或写入文件名的编码方式  
 (setq file-name-coding-system 'utf-8)   
 

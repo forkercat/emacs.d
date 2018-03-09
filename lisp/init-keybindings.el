@@ -1,11 +1,6 @@
 
 ;; ------------------------ init-keybindings.el ----------------------------
 
-;; shortcut
-(global-set-key (kbd "M-p") 'backward-sentence)
-(global-set-key (kbd "M-n") 'forward-sentence)
-
-
 ;; make comments
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
@@ -30,7 +25,7 @@
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
 ;; switch buffers
-                                        ; skip abnormal buffers
+                                        ;q; skip abnormal buffers
 (defun f-normal-buffer ()
   (or (not buffer-read-only)
       (buffer-file-name)))
@@ -50,9 +45,9 @@
       (while (and p (not (f-normal-buffer)))
 	(switch-to-prev-buffer)
 	(when (string= bn (buffer-name)) (setq p nil))))))
-                                        ; keybindings
-(global-set-key (kbd "C-}") 'c-switch-to-next-buffer)
-(global-set-key (kbd "C-{") 'c-switch-to-prev-buffer)
+;; keybindings
+(global-set-key (kbd "s-}") 'c-switch-to-next-buffer)
+(global-set-key (kbd "s-{") 'c-switch-to-prev-buffer)
 
 
 ;; indent-region
@@ -70,6 +65,19 @@
 	(indent-buffer)
         (message "Indent buffer :)")))))
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+
+;; move 5 lines
+(defun junhao-prev-lines ()
+  (interactive)
+  (cl-loop repeat 5 do (previous-line)))
+
+(defun junhao-next-lines ()
+  (interactive)
+  (cl-loop repeat 5 do (next-line)))
+(global-set-key (kbd "M-p") 'junhao-prev-lines)
+(global-set-key (kbd "M-n") 'junhao-next-lines)
+
 
 
 
