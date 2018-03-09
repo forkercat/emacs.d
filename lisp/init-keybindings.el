@@ -30,9 +30,29 @@
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
 ;; switch buffers
-(global-set-key (kbd "C-}") 'switch-to-next-buffer)
-(global-set-key (kbd "C-{") 'switch-to-prev-buffer)
-
+; skip abnormal buffers
+(defun f-normal-buffer ()
+  (or (not buffer-read-only)
+      (buffer-file-name)))
+(defun c-switch-to-next-buffer ()
+  (interactive)
+  (unless (minibufferp)
+    (let ((p t) (bn (buffer-name)))
+      (switch-to-next-buffer)
+      (while (and p (not (f-normal-buffer)))
+	(switch-to-next-buffer)
+	(when (string= bn (buffer-name)) (setq p nil))))))
+(defun c-switch-to-prev-buffer ()
+  (interactive)
+  (unless (minibufferp)
+    (let ((p t) (bn (buffer-name)))
+      (switch-to-prev-buffer)
+      (while (and p (not (f-normal-buffer)))
+	(switch-to-prev-buffer)
+	(when (string= bn (buffer-name)) (setq p nil))))))
+; keybindings
+(global-set-key (kbd "C-}") 'c-switch-to-next-buffer)
+(global-set-key (kbd "C-{") 'c-switch-to-prev-buffer)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)
