@@ -26,11 +26,11 @@
   (open-line 1)
   (next-line 1)
   (yank)
-)
+  )
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
 ;; switch buffers
-; skip abnormal buffers
+                                        ; skip abnormal buffers
 (defun f-normal-buffer ()
   (or (not buffer-read-only)
       (buffer-file-name)))
@@ -50,9 +50,28 @@
       (while (and p (not (f-normal-buffer)))
 	(switch-to-prev-buffer)
 	(when (string= bn (buffer-name)) (setq p nil))))))
-; keybindings
+                                        ; keybindings
 (global-set-key (kbd "C-}") 'c-switch-to-next-buffer)
 (global-set-key (kbd "C-{") 'c-switch-to-prev-buffer)
+
+
+;; indent-region
+(defun indent-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+(defun indent-region-or-buffer()
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+	(progn
+          (indent-region (region-beginning) (region-end))
+	  (message "Indent selected region :)"))
+      (progn
+	(indent-buffer)
+        (message "Indent buffer :)")))))
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

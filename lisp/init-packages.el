@@ -1,6 +1,7 @@
 
-
 ;; ------------------------ init-packages.el ----------------------------
+
+(add-to-list 'load-path "~/.emacs.d/plugins")
 
 
  (when (>= emacs-major-version 24)
@@ -24,8 +25,7 @@
 		;; --- Auto-completion ---
 		company
 		;; --- Better Editor ---
-                ;swiper
-		;counsel
+                popwin		
 		smartparens
 		;; --- Major Mode ---
                 ;js2-mode
@@ -129,7 +129,6 @@
 
 
 ;; ace-jump-mode
-(add-to-list 'load-path "~/.emacs.d/plugins")
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
@@ -150,6 +149,10 @@
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
+
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
 
 
 ;; ------------------------ EOF ----------------------------

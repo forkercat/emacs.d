@@ -23,7 +23,6 @@
 ;; 不生成备份
 (setq make-backup-files nil)
 
-
 ;;设置自动保存的目录
 ;(setq backup-directory-alist '(("." . "~/.autosave")))
 
@@ -55,11 +54,16 @@
 (recentf-mode 1)
 (setq rectf-max-menu-item 25)
 
-
 ;; 选中删除
 (delete-selection-mode t)
 
+;; ???
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+;; auto reload files that have been modified beyond emacs
+(global-auto-revert-mode t)
+
+
 
 
 ;; -------------- coding system ----------------
