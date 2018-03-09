@@ -154,6 +154,11 @@
 (popwin-mode 1)
 
 
+;; window-numbering
+(require 'window-numbering)  
+(window-numbering-mode 1)
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-packages)
 
