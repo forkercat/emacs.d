@@ -99,18 +99,33 @@
 (smex-initialize)
 ; Can be omitted. This might cause a (minimal) delay
 ; when Smex is auto-initialized on its first run.
-
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; C-h w to see the shortcut of the key   or + f
 
 ;; ido-mode
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'always)
 (setq ido-enable-last-directory-history nil)
-(setq ido-everywhere t)          
+(setq ido-everywhere t)
+(setq ido-separator "\n* ")
+(defun bind-ido-keys ()
+  "Keybindings for ido mode."
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match) 
+  (define-key ido-completion-map (kbd "C-p")   'ido-prev-match))
+(add-hook 'ido-setup-hook #'bind-ido-keys)
 (ido-mode 1)
 
 
 ;; multiple-cursors
 (require 'multiple-cursors)
+;; multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)  ;; don't know how to use
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
 
 
 ;; ace-jump-mode
