@@ -1,6 +1,9 @@
 
 ;; ------------------------ init-org.el ----------------------------
 
+;; 安装最新的org-mode-9.1.7
+(add-to-list 'load-path "~/.emacs.d/plugins/org-9.1.7/lisp/")
+
 ;; 自动换行？？？ 不知道
 ;; (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 

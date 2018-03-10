@@ -12,8 +12,8 @@
                            ("melpa-china" . "http://elpa.emacs-china.org/melpa/")
                            ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
                            ("melpa" . "http://melpa.org/packages/")
-                           ("melpa-stable" . "http://stable.melpa.org/packages/")
-                           )))
+                           ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 

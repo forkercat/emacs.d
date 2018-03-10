@@ -80,7 +80,7 @@
 
 ;; set cursor color
 (setq evil-default-cursor t)
-(set-cursor-color "#E5E5E5")
+(set-cursor-color "#E1E1E1")
 
 ;; set font-face of headers in org-mode
 (set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
