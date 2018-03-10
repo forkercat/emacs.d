@@ -21,6 +21,15 @@
    (C . t)
    ))
 
+;; highlight of src codes
+(setq org-src-fontify-natively t)
+
+;; output headers with order number
+(setq org-export-with-section-numbers t)
+
+;; indent
+(setq org-indent-mode t)
+
 ;; -------------- ending of org config -------------
 
 

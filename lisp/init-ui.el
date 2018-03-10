@@ -63,17 +63,30 @@
 ;; set font size
 (set-face-attribute 'default nil :font "Menlo-13")
 
+;; Chinese Font 哈士奇坏蛋
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+	(set-fontset-font (frame-parameter nil 'font)
+					  charset
+					  (font-spec :family "Microsoft Yahei" :size 12)))
 
 ;; highlight current line
-(global-hl-line-mode t)
+
+;; (global-hl-line-mode t)
 ;; set highlight color for the line
-(set-face-background 'hl-line "#171717")     ; #07243c
+;; (set-face-background 'hl-line "#0D0D0D")     ; #07243c
 ;; keep syntax highlighting in the current line
-(set-face-foreground 'highlight nil)
+;; (set-face-foreground 'highlight nil)
 
 
 ;; set cursor color
+(setq evil-default-cursor t)
 (set-cursor-color "#FFFFFF")
+
+;; set font-face of headers in org-mode
+(set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
+(set-face-attribute 'org-level-2 nil :height 1.2 :bold t)
+(set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
+(set-face-attribute 'org-level-4 nil :height 1.0 :bold t)
 
 
 ;; background color

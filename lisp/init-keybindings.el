@@ -12,6 +12,11 @@
 ;; get rid of suspension! press C-g-z to redo!
 (global-set-key (kbd "C-z") 'undo)
 
+;; go back to previous buffer
+(global-set-key (kbd "C-x x") 'switch-to-prev-buffer)
+
+
+
 ;; duplicate a line
 (defun duplicate-line()
   (interactive)

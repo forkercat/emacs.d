@@ -28,13 +28,13 @@
                       popwin		
                       smartparens
                       ;; --- Major Mode ---
-                                        ;js2-mode
+                      ;;js2-mode
                       markdown-mode
                       ;; --- Minor Mode ---
                       nodejs-repl
                       exec-path-from-shell
                       ;; --- Themes ---
-                                        ;monokai-theme
+                      ;;monokai-theme
                       ;; solarized-theme
                       ) "Default packages")
 
@@ -159,6 +159,20 @@
 (window-numbering-mode 1)
 (require 'reveal-in-osx-finder)
 (global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
+
+;; multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+(setq multi-term-buffer-name "bad-term")
+;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
+(setq system-uses-terminfo nil)
+(global-set-key (kbd "C-t") 'multi-term)
+(global-set-key (kbd "M-[") 'multi-term-prev)
+(global-set-key (kbd "M-]") 'multi-term-next)
+;; term-bind-key
+(add-to-list 'term-bind-key-alist '("C-t"))
+
+
 
 
 ;; ------------------------ EOF ----------------------------

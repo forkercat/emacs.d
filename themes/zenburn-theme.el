@@ -59,9 +59,9 @@ defining them in this alist."
     ("zenburn-bg-2"     . "#1A1A1A")
     ("zenburn-bg-1"     . "#2B2B2B")
     ("zenburn-bg-05"    . "#383838")
-    ("zenburn-bg"       . "#1A1A1A")
+    ("zenburn-bg"       . "#000000")   ;; line number
     ("zenburn-bg+05"    . "#494949")
-    ("zenburn-bg+1"     . "#1A1A1A")
+    ("zenburn-bg+1"     . "#0D0D0D")   ;; margin
     ("zenburn-bg+2"     . "#5F5F5F")
     ("zenburn-bg+3"     . "#6F6F6F")
     ("zenburn-red+2"    . "#ECB3B3")
@@ -849,7 +849,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ledger-font-reconciler-pending-face ((t (:foreground ,zenburn-orange :weight normal))))
    `(ledger-font-report-clickable-face ((t (:foreground ,zenburn-orange :weight normal))))
 ;;;;; linum-mode
-   `(linum ((t (:foreground ,"#D3D3D3" :background ,zenburn-bg))))
+   `(linum ((t (:foreground ,"#606060" :background ,zenburn-bg))))
 ;;;;; lispy
    `(lispy-command-name-face ((t (:background ,zenburn-bg-05 :inherit font-lock-function-name-face))))
    `(lispy-cursor-face ((t (:foreground ,zenburn-bg :background ,zenburn-fg))))
