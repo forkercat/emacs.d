@@ -92,17 +92,14 @@
 ;; company
 (global-company-mode t)
 
+
 ;; Smex
 (require 'smex) 
 ;; Not needed if you use package.el
 (smex-initialize)
 ;; Can be omitted. This might cause a (minimal) delay
 ;; when Smex is auto-initialized on its first run.
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-;; C-h w to see the shortcut of the key   or + f
+
 
 ;; ido-mode
 (setq ido-enable-flex-matching t)
@@ -110,21 +107,11 @@
 (setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)
 (setq ido-separator "\n* ")
-(defun bind-ido-keys ()
-  "Keybindings for ido mode."
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match) 
-  (define-key ido-completion-map (kbd "C-p")   'ido-prev-match))
-(add-hook 'ido-setup-hook #'bind-ido-keys)
 (ido-mode 1)
 
 
 ;; multiple-cursors
 (require 'multiple-cursors)
-;; multiple-cursors
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)  ;; don't know how to use
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
 
 
 ;; ace-jump-mode
@@ -133,9 +120,6 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
 ;; 
 ;; enable a more powerful jump back function from ace jump mode
 ;;
@@ -146,7 +130,6 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 
 ;; popwin
@@ -157,8 +140,11 @@
 ;; window-numbering
 (require 'window-numbering)  
 (window-numbering-mode 1)
+
+
+;; reveal-in-osx-finder
 (require 'reveal-in-osx-finder)
-(global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
+
 
 ;; multi-term
 (require 'multi-term)
@@ -166,12 +152,27 @@
 (setq multi-term-buffer-name "bad-term")
 ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
 (setq system-uses-terminfo nil)
-(global-set-key (kbd "C-t") 'multi-term)
-(global-set-key (kbd "M-[") 'multi-term-prev)
-(global-set-key (kbd "M-]") 'multi-term-next)
+
+
 ;; term-bind-key
 (add-to-list 'term-bind-key-alist '("C-t"))
 
+(defun last-term-buffer (l)
+  "Return most recently used term buffer."
+  (when l
+    (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+        (car l) (last-term-buffer (cdr l)))))
+
+(defun get-term ()
+  "Switch to the term buffer last used, or create a new one if
+    none exists, or if the current buffer is already a term."
+  (interactive)
+    (let ((b (last-term-buffer (buffer-list))))
+    (if (or (not b) (eq 'term-mode major-mode))
+        (progn (multi-term)
+               (message "create a new multi-term!"))
+      (progn (switch-to-buffer b)
+             (message "switch a exist multi-term!")))))
 
 
 
