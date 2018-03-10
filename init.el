@@ -1,5 +1,4 @@
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  
 ;; Filename:      init.el  
 ;;                  
@@ -36,9 +35,9 @@
 ;;
 (require 'init-packages)
 (require 'init-better-defaults)
+(require 'init-org)
 (require 'init-ui)
 (require 'init-keybindings)
-(require 'init-org)
 (require 'custom)
 ;;
 ;; ------------------------ EOF ----------------------------

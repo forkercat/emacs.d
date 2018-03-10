@@ -1,38 +1,6 @@
 
 ;; ------------------------ init-better-defaults.el ----------------------------
 
-;; -------------- for org-mode ----------------
-;; 自动换行？？？ 不知道
-;; (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-
-;; 直接在org下运行代码
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (sh . t)
-   (python . t)
-   (R . t)
-   (ruby . t)
-   (ditaa . t)
-   (dot . t)
-   (octave . t)
-   (sqlite . t)
-   (perl . t)
-   (C . t)
-   ))
-
-;; highlight of src codes
-(setq org-src-fontify-natively t)
-
-;; output headers with order number
-(setq org-export-with-section-numbers t)
-
-;; indent
-(setq org-indent-mode t)
-
-;; -------------- ending of org config -------------
-
-
 ;;关闭烦人的出错时的提示音
 ;;(setq visible-bell t)
 
@@ -134,9 +102,9 @@
 (setq file-name-coding-system 'utf-8)   
 
 ;; 终端中文乱码??? 无法解决
-(set-terminal-coding-system 'utf-8)
-(modify-coding-system-alist 'process "*" 'utf-8)
-(setq default-process-coding-system '(utf-8 . utf-8))
+;; (set-terminal-coding-system 'utf-8)
+;; (modify-coding-system-alist 'process "*" 'utf-8)
+;; (setq default-process-coding-system '(utf-8 . utf-8))
 
 
 ;; ------------------------ EOF ----------------------------

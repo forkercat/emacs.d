@@ -2,7 +2,7 @@
 ;; ------------------------ init-ui.el ----------------------------
 
 ;;改变emacs标题栏的标题
-(setq frame-title-format "emacs@junhaowang")
+(setq frame-title-format "emacs@@@junhaowang")
 
 ;; Display Line of Numbers
 (global-linum-mode t)
@@ -80,7 +80,7 @@
 
 ;; set cursor color
 (setq evil-default-cursor t)
-(set-cursor-color "#FFFFFF")
+(set-cursor-color "#E5E5E5")
 
 ;; set font-face of headers in org-mode
 (set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
