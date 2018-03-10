@@ -23,9 +23,8 @@
 ;; 不生成备份
 (setq make-backup-files nil)
 
-
 ;;设置自动保存的目录
-;(setq backup-directory-alist '(("." . "~/.autosave")))
+;; (setq backup-directory-alist '(("." . "~/.autosave")))
 
 ;;允许emacs和外部其他程序的粘贴
 (setq x-select-enable-clipboard t)
@@ -55,11 +54,30 @@
 (recentf-mode 1)
 (setq rectf-max-menu-item 25)
 
-
 ;; 选中删除
 (delete-selection-mode t)
 
+;; ???
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+;; auto reload files that have been modified beyond emacs
+(global-auto-revert-mode t)
+
+
+;; abbrev-mode
+(setq-default abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+                                            ("xmail" "junhaowww@outlook.com")
+                                            ("xname" "Junhao Wang")
+                                            ))
+
+
+;; dired-mode
+(put 'dired-find-alternate-file 'disabled nil)
+;; 延迟加载
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 
 
 ;; -------------- coding system ----------------
@@ -71,22 +89,22 @@
 ;;写文件的编码方式  
 ;;(set-buffer-file-coding-system 'gb2312)  
 (set-buffer-file-coding-system 'utf-8)  
-  
+
 ;;新建文件的编码方式  
 ;;(setq default-buffer-file-coding-system 'gb2312)  
 (setq default-buffer-file-coding-system 'utf-8)
-  
+
 ;;键盘输入的编码方式  
 ;;(set-keyboard-coding-system 'gb2312)   
 (set-keyboard-coding-system 'utf-8)   
-      
+
 ;;读取或写入文件名的编码方式  
 (setq file-name-coding-system 'utf-8)   
 
 ;; 终端中文乱码??? 无法解决
-(set-terminal-coding-system 'utf-8)
-(modify-coding-system-alist 'process "*" 'utf-8)
-(setq default-process-coding-system '(utf-8 . utf-8))
+;; (set-terminal-coding-system 'utf-8)
+;; (modify-coding-system-alist 'process "*" 'utf-8)
+;; (setq default-process-coding-system '(utf-8 . utf-8))
 
 
 ;; ------------------------ EOF ----------------------------

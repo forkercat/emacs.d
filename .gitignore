@@ -1,4 +1,5 @@
 /*
+.DS_Store
 
 !/lisp
 !init.el
@@ -6,5 +7,5 @@
 !LICENSE
 !.gitignore
 !/plugins
-
+!/themes
 

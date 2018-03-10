@@ -1,12 +1,8 @@
 
-
-
-
-
 ;; ------------------------ init-ui.el ----------------------------
 
 ;;改变emacs标题栏的标题
-(setq frame-title-format "Junhao's Cracking Emacs")
+(setq frame-title-format "emacs@@@junhaowang")
 
 ;; Display Line of Numbers
 (global-linum-mode t)
@@ -36,18 +32,28 @@
 
 
 ;; Theme
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (company))))
-(custom-set-faces)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(defvar zenburn-override-colors-alist
+  '(
+    ("zenburn-bg+2"  . "#BFBFBF")))
+(load-theme 'zenburn t)
+
+
+;; (custom-set-variables
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+
+ ;; '(ansi-color-faces-vector
+   ;; [default default default italic underline success warning error])
+ ;; '(ansi-color-names-vector
+   ;; ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+;; '(custom-enabled-themes (quote (wheatgrass)))
+ ;; '(package-selected-packages (quote (company))))
+;; (custom-set-faces)
+
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -57,21 +63,36 @@
 ;; set font size
 (set-face-attribute 'default nil :font "Menlo-13")
 
+;; Chinese Font 哈士奇坏蛋
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+	(set-fontset-font (frame-parameter nil 'font)
+					  charset
+					  (font-spec :family "Microsoft Yahei" :size 12)))
 
 ;; highlight current line
-(global-hl-line-mode t)
+
+;; (global-hl-line-mode t)
 ;; set highlight color for the line
-(set-face-background 'hl-line "#171717")     ; #07243c
+;; (set-face-background 'hl-line "#0D0D0D")     ; #07243c
 ;; keep syntax highlighting in the current line
-(set-face-foreground 'highlight nil)
+;; (set-face-foreground 'highlight nil)
 
 
 ;; set cursor color
-(set-cursor-color "#efefef")
+(setq evil-default-cursor t)
+(set-cursor-color "#E5E5E5")
+
+;; set font-face of headers in org-mode
+(set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
+(set-face-attribute 'org-level-2 nil :height 1.2 :bold t)
+(set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
+(set-face-attribute 'org-level-4 nil :height 1.0 :bold t)
 
 
 ;; background color
-(set-background-color "#000000")  ; black
+;; (set-background-color "#000000")  ; black
+
+
 
 
 ;; ------------------------ EOF ----------------------------
