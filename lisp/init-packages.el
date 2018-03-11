@@ -28,14 +28,9 @@
                       popwin    
                       smartparens
                       ;; --- Major Mode ---
-                      ;;js2-mode
                       markdown-mode
                       ;; --- Minor Mode ---
-                      nodejs-repl
                       exec-path-from-shell
-                      ;; --- Themes ---
-                      ;;monokai-theme
-                      ;; solarized-theme
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -89,16 +84,14 @@
 ;; flycheck-pos-tip
 ;;(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
 
+
 ;; company
 (global-company-mode t)
 
 
 ;; Smex
 (require 'smex) 
-;; Not needed if you use package.el
 (smex-initialize)
-;; Can be omitted. This might cause a (minimal) delay
-;; when Smex is auto-initialized on its first run.
 
 
 ;; ido-mode
