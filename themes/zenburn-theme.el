@@ -189,7 +189,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;   ((t (:foreground ,zenburn-green-2
    ;                    :background ,junhao-mode-line-bg-2
    ;                    :box (:line-width -1 :style released-button)))))
-   `(region ((,class (:background ,zenburn-bg-1))
+   `(region ((,class (:background ,"#0f6604"))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,zenburn-bg+2))))
    `(trailing-whitespace ((t (:background ,zenburn-red))))

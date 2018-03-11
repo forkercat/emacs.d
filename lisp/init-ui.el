@@ -34,9 +34,9 @@
 ;; Theme
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(defvar zenburn-override-colors-alist
-  '(
-    ("zenburn-bg+2"  . "#BFBFBF")))
+;; (defvar zenburn-override-colors-alist
+;;   '(
+;;     ("zenburn-bg+2"  . "#BFBFBF")))
 (load-theme 'zenburn t)
 
 
@@ -64,10 +64,10 @@
 (set-face-attribute 'default nil :font "Menlo-13")
 
 ;; Chinese Font 哈士奇坏蛋
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-	(set-fontset-font (frame-parameter nil 'font)
-					  charset
-					  (font-spec :family "Microsoft Yahei" :size 12)))
+;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;; 	(set-fontset-font (frame-parameter nil 'font)
+;; 					  charset
+;; 					  (font-spec :family "Microsoft Yahei" :size 12)))
 
 ;; highlight current line
 
@@ -80,11 +80,11 @@
 
 ;; set cursor color
 (setq evil-default-cursor t)
-(set-cursor-color "#E5E5E5")
+(set-cursor-color "#E1E1E1")
 
 ;; set font-face of headers in org-mode
-(set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
-(set-face-attribute 'org-level-2 nil :height 1.2 :bold t)
+(set-face-attribute 'org-level-1 nil :height 1.1 :bold t)
+(set-face-attribute 'org-level-2 nil :height 1.0 :bold t)
 (set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
 (set-face-attribute 'org-level-4 nil :height 1.0 :bold t)
 

@@ -33,6 +33,7 @@
 ;; Package Management
 ;; -----------------------------------------------------------------
 ;;
+(desktop-save-mode t)
 (require 'init-packages)
 (require 'init-better-defaults)
 (require 'init-org)
@@ -41,3 +42,4 @@
 (require 'custom)
 ;;
 ;; ------------------------ EOF ----------------------------
+
