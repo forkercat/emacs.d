@@ -21,6 +21,11 @@
 (global-set-key (kbd "M-}") 'c-switch-to-next-buffer)
 (global-set-key (kbd "M-{") 'c-switch-to-prev-buffer)
 
+;; smex-mode
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;; ido-mode
 (defun bind-ido-keys ()
   "Keybindings for ido mode."
@@ -30,6 +35,14 @@
 
 ;; ace-jump-mode
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;; multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)  ;; don't know how to use
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
+
+;; ace-jump-mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; indent-region
@@ -39,8 +52,13 @@
 (global-set-key (kbd "M-p") 'junhao-prev-lines)
 (global-set-key (kbd "M-n") 'junhao-next-lines)
 
-;; 搜索当前区域
-(global-set-key (kbd "M-s o") 'occur-dwim)
+;; reveal-in-osx-finder
+(global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
+
+;; multi-term
+(global-set-key (kbd "C-t") 'get-term)
+(global-set-key (kbd "M-[") 'multi-term-prev)
+(global-set-key (kbd "M-]") 'multi-term-next)
 
 
 
