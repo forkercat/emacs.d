@@ -7,7 +7,6 @@
 ;;没有提示音,也不闪屏
 (setq ring-bell-function 'ignore)
 
-
 ;;改变emacs固执的yes or no行为
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -16,6 +15,14 @@
 
 ;;但鼠标不会移到匹配括号
 (setq show-paren-style 'parenthesis)
+
+;; 在括号内即显示匹配
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
 
 ;;不要生成临时文件
 (setq auto-save-default nil)
@@ -32,9 +39,6 @@
 ;;设置tab宽度为4
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4 c-basic-offset 4)
-
-;; restore current workplace
-(desktop-save-mode t)
 
 ;; match
 (electric-pair-mode t)
@@ -63,6 +67,23 @@
 ;; auto reload files that have been modified beyond emacs
 (global-auto-revert-mode t)
 
+
+;; 搜索当前选中区域
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+
+
+;; ------------------- big things -------------------
 
 ;; abbrev-mode
 (setq-default abbrev-mode t)

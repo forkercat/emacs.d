@@ -1,64 +1,22 @@
 
 ;; ------------------------ init-packages.el ----------------------------
 
+;; load-path
 (add-to-list 'load-path "~/.emacs.d/plugins")
+(add-to-list 'load-path "~/.emacs.d/elpa")
 
+;; melpa
+(require 'package)
+(package-initialize)
+(add-to-list'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (setq package-archives '(
-                           ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa-china" . "http://elpa.emacs-china.org/melpa/")
-                           ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
-                           ("melpa" . "http://melpa.org/packages/")
-                           ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+(require 'use-package)
 
-
-;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
-
-;; cl - Common Lisp Extension
-(require 'cl)
-
-;; Add Packages
-(defvar my/packages '(
-                      ;; --- Auto-completion ---
-                      company
-                      ;; --- Better Editor ---
-                      popwin		
-                      smartparens
-                      ;; --- Major Mode ---
-                      ;;js2-mode
-                      markdown-mode
-                      ;; --- Minor Mode ---
-                      nodejs-repl
-                      exec-path-from-shell
-                      ;; --- Themes ---
-                      ;;monokai-theme
-                      ;; solarized-theme
-                      ) "Default packages")
-
-(setq package-selected-packages my/packages)
-
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
-        when (not (package-installed-p pkg)) do (return nil)
-        finally (return t)))
-
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg my/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
-;; Find Executable Path on OS X
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 
 
 ;; ------------------------ package details ----------------------------
+
 
 
 ;; yasnippet
@@ -87,18 +45,30 @@
 
 
 ;; flycheck-pos-tip
-(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
+;; (with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
+
 
 ;; company
-(global-company-mode t)
+(use-package company
+  :config
+  (global-company-mode t)
+  :bind (:map company-active-map
+              ("M-n" . nil)
+              ("M-p" . nil)
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous))
+  )
 
 
 ;; Smex
-(require 'smex) 
-;; Not needed if you use package.el
-(smex-initialize)
-;; Can be omitted. This might cause a (minimal) delay
-;; when Smex is auto-initialized on its first run.
+(use-package smex
+  :config
+  (smex-initialize)
+  :bind (("M-x" . smex)
+         ("M-x" . smex-major-mode-commands)
+         ("C-c C-c M-x". execute-extended-command)
+         )
+  )
 
 
 ;; ido-mode
@@ -107,11 +77,17 @@
 (setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)
 (setq ido-separator "\n* ")
-(ido-mode 1)
+(ido-mode t)
 
 
 ;; multiple-cursors
-(require 'multiple-cursors)
+(use-package multiple-cursors
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C-." . mc/mark-next-like-this)
+         ("C-," . mc/mark-preivous-like-this)
+         ("C-c C-a" . mc/mark-all-like-this)
+         )
+  )
 
 
 ;; ace-jump-mode
@@ -120,9 +96,6 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-;; 
-;; enable a more powerful jump back function from ace jump mode
-;;
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
@@ -133,47 +106,74 @@
 
 
 ;; popwin
-(require 'popwin)
-(popwin-mode 1)
+(use-package popwin
+  :config
+  (popwin-mode 1)
+  )
 
 
 ;; window-numbering
-(require 'window-numbering)  
-(window-numbering-mode 1)
+(use-package window-numbering
+  :config
+  (window-numbering-mode 1)
+  )
 
 
 ;; reveal-in-osx-finder
-(require 'reveal-in-osx-finder)
+(use-package reveal-in-osx-finder
+  :bind (("C-c z" . reveal-in-osx-finder))
+  )
 
 
 ;; multi-term
-(require 'multi-term)
-(setq multi-term-program "/bin/zsh")
-(setq multi-term-buffer-name "bad-term")
-;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
-(setq system-uses-terminfo nil)
+(use-package multi-term
+  :config
+  (progn
+    (setq multi-term-program "/bin/zsh")
+    (setq multi-term-buffer-name "bad-term")
+    ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
+    (setq system-uses-terminfo nil)
+    ;; term-bind-key
+    (add-to-list 'term-bind-key-alist '("C-t"))
 
+    (defun last-term-buffer (l)
+      "Return most recently used term buffer."
+      (when l
+        (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+            (car l) (last-term-buffer (cdr l)))))
 
-;; term-bind-key
-(add-to-list 'term-bind-key-alist '("C-t"))
-
-(defun last-term-buffer (l)
-  "Return most recently used term buffer."
-  (when l
-    (if (eq 'term-mode (with-current-buffer (car l) major-mode))
-        (car l) (last-term-buffer (cdr l)))))
-
-(defun get-term ()
-  "Switch to the term buffer last used, or create a new one if
+    (defun get-term ()
+      "Switch to the term buffer last used, or create a new one if
     none exists, or if the current buffer is already a term."
-  (interactive)
-    (let ((b (last-term-buffer (buffer-list))))
-    (if (or (not b) (eq 'term-mode major-mode))
-        (progn (multi-term)
-               (message "create a new multi-term!"))
-      (progn (switch-to-buffer b)
-             (message "switch a exist multi-term!")))))
+      (interactive)
+      (let ((b (last-term-buffer (buffer-list))))
+        (if (or (not b) (eq 'term-mode major-mode))
+            (progn (multi-term)
+                   (message "create a new multi-term!"))
+          (progn (switch-to-buffer b)
+                 (message "switch a exist multi-term!")))))
+    )
+  :bind (("C-t" . get-term)
+         ("M-[" . multi-term-prev)
+         ("M-]" . multi-term-next))  
+  )
 
+
+;; web-mode
+(use-package web-mode
+  :config
+  (setq auto-mode-alist
+        (append
+         '(("\\.html\\'" . web-mode))
+         auto-mode-alist))
+  )
+
+
+;; expand-region
+(use-package expand-region
+  :bind (("S-SPC" . er/expand-region)
+         ("M-SPC" . er/contract-region))
+  )
 
 
 ;; ------------------------ EOF ----------------------------
