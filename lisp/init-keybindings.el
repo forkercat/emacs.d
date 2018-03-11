@@ -49,8 +49,8 @@
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
 ;; move 5 lines
-(global-set-key (kbd "M-p") 'backward-paragraph)
-(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'junhao-prev-lines)
+(global-set-key (kbd "M-n") 'junhao-next-lines)
 
 ;; reveal-in-osx-finder
 (global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
