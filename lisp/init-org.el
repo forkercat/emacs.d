@@ -33,20 +33,25 @@
 (setq org-indent-mode t)
 
 ;; agenda
-(setq org-agenda-files (list "~/org/todo.org"))
+(setq org-agenda-files (list "~/Dropbox/org/todo.org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; TODO keywords
 (setq org-todo-keyword-faces
-      '(("PENDING" . "#27bdad") ("CANCELED" . "#d33535")
+      '(("PENDING" . "#27BDAD") ("CANCELED" . "#D33535")
       ))
 
 ;; open my todo.org
 (defun open-my-todo-org ()
     (interactive)
-    (find-file "~/org/todo.org")
-  )
+    (find-file "~/Dropbox/org/todo.org"))
 (global-set-key (kbd "C-c t") 'open-my-todo-org)
+
+;; open my note.org
+(defun open-my-note-org ()
+  (interactive)
+  (find-file "~/Dropbox/org/note.org"))
+(global-set-key (kbd "C-c n") 'open-my-note-org)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-org)
