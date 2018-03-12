@@ -50,5 +50,8 @@
   (find-file "~/Dropbox/org/note.org"))
 (global-set-key (kbd "C-c n") 'open-my-note-org)
 
+;; open in the current window
+(setq org-agenda-window-setup 'current-window)
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-org)
