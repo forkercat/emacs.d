@@ -1,11 +1,11 @@
 /*
 .DS_Store
 
-!/lisp
+!/lisp/
 !init.el
 !README.md
 !LICENSE
 !.gitignore
-!/plugins
-!/themes
-!/snippets
+!/plugins/
+!/themes/
+!/snippets/
