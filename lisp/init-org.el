@@ -29,9 +29,6 @@
 ;; output headers with order number
 (setq org-export-with-section-numbers t)
 
-;; indent
-(setq org-indent-mode t)
-
 ;; agenda
 (setq org-agenda-files (list "~/Dropbox/org/todo.org"))
 (global-set-key (kbd "C-c a") 'org-agenda)

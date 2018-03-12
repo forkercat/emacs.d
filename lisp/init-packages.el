@@ -177,7 +177,45 @@
 (require 'windresize)
 
 
+;; hideshowvis
+(require 'hideshowvis)
+(autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+(autoload 'hideshowvis-minor-mode
+  "hideshowvis"
+  "Will indicate regions foldable with hideshow in the fringe."
+  'interactive)
+(dolist (hook (list 'emacs-lisp-mode-hook
+                    'c++-mode-hook
+                    'c-mode-hook
+                    'cc-mode-hook
+                    'python-mode-hook
+                    'html-mode-hook
+                    'web-mode-hook))
+  (add-hook hook 'hideshowvis-enable))
 
+
+;; hideshow
+(require 'hideshow)
+(setq hs-allow-nesting t)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (hs-minor-mode 1)))
+(add-hook 'cc-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'c++-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'python-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
 
 
 

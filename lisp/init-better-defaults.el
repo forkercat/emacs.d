@@ -1,8 +1,21 @@
 
 ;; ------------------------ init-better-defaults.el ----------------------------
 
-;;关闭烦人的出错时的提示音
-;;(setq visible-bell t)
+;; horrible-tab
+(require 'horrible-tab)
+
+;;可怕的缩进
+(setq-default indent-tabs-mode nil) ; tab 改为插入空格
+(setq default-tab-width 4)
+(setq tab-width 4)
+(setq c-basic-offset 4) ;;c/c++ 缩进4个空格
+(setq c-default-style "linux")   ;;没有这个 { } 就会瞎搞
+(setq python-indent-offset 4)
+
+;; match
+(require 'electric)
+(electric-pair-mode t)
+(electric-indent-mode t)
 
 ;;没有提示音,也不闪屏
 (setq ring-bell-function 'ignore)
@@ -20,9 +33,9 @@
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+        (t (save-excursion
+             (ignore-errors (backward-up-list))
+             (funcall fn)))))
 
 ;;不要生成临时文件
 (setq auto-save-default nil)
@@ -35,14 +48,6 @@
 
 ;;允许emacs和外部其他程序的粘贴
 (setq x-select-enable-clipboard t)
-
-;;设置tab宽度为4
-(setq-default indent-tabs-mode nil)
-(setq tab-width 4 c-basic-offset 4)
-
-;; match
-(electric-pair-mode t)
-(electric-indent-mode t)
 
 ;; continuous scrolling
 (setq scroll-step 1
@@ -74,13 +79,13 @@
   "Call `occur' with a sane default."
   (interactive)
   (push (if (region-active-p)
-	    (buffer-substring-no-properties
-	     (region-beginning)
-	     (region-end))
-	  (let ((sym (thing-at-point 'symbol)))
-	    (when (stringp sym)
-	      (regexp-quote sym))))
-	regexp-history)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
   (call-interactively 'occur))
 
 
@@ -109,7 +114,7 @@
 (put 'dired-find-alternate-file 'disabled nil)
 ;; 延迟加载
 (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 
 ;; make comments
@@ -139,11 +144,11 @@
   (interactive)
   (save-excursion
     (if (region-active-p)
-	(progn
+        (progn
           (indent-region (region-beginning) (region-end))
-	  (message "Indent selected region :)"))
+          (message "Indent selected region :)"))
       (progn
-	(indent-buffer)
+        (indent-buffer)
         (message "Indent buffer :)")))))
 
 
@@ -158,16 +163,16 @@
     (let ((p t) (bn (buffer-name)))
       (switch-to-next-buffer)
       (while (and p (not (f-normal-buffer)))
-	(switch-to-next-buffer)
-	(when (string= bn (buffer-name)) (setq p nil))))))
+        (switch-to-next-buffer)
+        (when (string= bn (buffer-name)) (setq p nil))))))
 (defun c-switch-to-prev-buffer ()
   (interactive)
   (unless (minibufferp)
     (let ((p t) (bn (buffer-name)))
       (switch-to-prev-buffer)
       (while (and p (not (f-normal-buffer)))
-	(switch-to-prev-buffer)
-	(when (string= bn (buffer-name)) (setq p nil))))))
+        (switch-to-prev-buffer)
+        (when (string= bn (buffer-name)) (setq p nil))))))
 
 
 ;; move 5 lines
