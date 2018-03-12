@@ -170,8 +170,15 @@
 
 ;; expand-region
 (require 'expand-region)
-(global-set-key (kbd "S-SPC") 'er/expand-region)
-(global-set-key (kbd "M-SPC") 'er/contract-region)
+
+
+
+;; windresize
+(require 'windresize)
+
+
+
+
 
 
 ;; ------------------------ EOF ----------------------------

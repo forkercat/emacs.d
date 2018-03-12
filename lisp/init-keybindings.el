@@ -71,6 +71,20 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 
+;; expand-region
+(global-set-key (kbd "S-SPC") 'er/expand-region)
+(global-set-key (kbd "M-SPC") 'er/contract-region)
+
+
+;; windresize
+(global-set-key (kbd "C-c w") 'windresize)
+
+
+;; winner mode
+(global-set-key (kbd "C-x <left>") 'winner-undo)
+(global-set-key (kbd "C-x <right>") 'winner-redo)
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)
 

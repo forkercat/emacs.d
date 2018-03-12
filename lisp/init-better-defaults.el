@@ -89,6 +89,12 @@
 (setq case-fold-search nil)
 
 
+;; winner-mode
+(setq winner-dont-bind-my-keys t)
+(winner-mode t)
+
+
+
 ;; ------------------- big things -------------------
 
 ;; abbrev-mode
