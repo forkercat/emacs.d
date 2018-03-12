@@ -46,7 +46,7 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; indent-region
-(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+(global-set-key (kbd "M-s-ƒ") 'indent-region-or-buffer)
 
 ;; move 5 lines
 (global-set-key (kbd "M-p") 'junhao-prev-lines)
@@ -70,19 +70,22 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-
 ;; expand-region
 (global-set-key (kbd "S-SPC") 'er/expand-region)
 (global-set-key (kbd "M-SPC") 'er/contract-region)
 
-
 ;; windresize
 (global-set-key (kbd "C-c w") 'windresize)
-
 
 ;; winner mode
 (global-set-key (kbd "C-x <left>") 'winner-undo)
 (global-set-key (kbd "C-x <right>") 'winner-redo)
+
+;; windmove
+(global-set-key (kbd "C-M-f") 'windmove-right)
+(global-set-key (kbd "C-M-b") 'windmove-left)
+(global-set-key (kbd "C-M-n") 'windmove-down)
+(global-set-key (kbd "C-M-p") 'windmove-up)
 
 
 ;; ------------------------ EOF ----------------------------
