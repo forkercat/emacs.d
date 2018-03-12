@@ -6,14 +6,15 @@
 
 (when (>= emacs-major-version 24)
   (require 'package)
-  (package-initialize)
-  (setq package-archives '(
-                           ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa-china" . "http://elpa.emacs-china.org/melpa/")
-                           ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
-                           ("melpa" . "http://melpa.org/packages/")
-                           ("melpa-stable" . "http://stable.melpa.org/packages/"))))
 
+  (setq package-archives '(
+                           ;;("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                           ;;("melpa-china" . "http://elpa.emacs-china.org/melpa/")
+                           ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
+                           ;;("melpa" . "http://melpa.org/packages/")
+                           ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+  
+  (package-initialize)
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
@@ -31,6 +32,7 @@
                       markdown-mode
                       ;; --- Minor Mode ---
                       exec-path-from-shell
+                      flycheck
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -57,28 +59,18 @@
 
 
 ;; yasnippet
-;;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-;;(require 'yasnippet)
-;;(yas/global-mode 1)
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-snippets")
+(require 'yasnippet)
+(require 'yasnippet-snippets)
+(setf yas/indent-line 'fixed)
+(yas/global-mode 1)
 
-
-;; auto-complete
-;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20160416.604")
-;;(require 'auto-complete-config)
-;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20160416.604/dict")
-;;(ac-config-default)
-;;(define-key ac-complete-mode-map "\C-n" 'ac-next)
-;;(define-key ac-complete-mode-map "\C-p" 'ac-previous)
-;;(global-auto-complete-mode t)
-;;(setq ac-dwim t)
-;;(setq ac-delay 0)
-;;(define-key ac-completing-map "\t" 'ac-complete)
-;;(setq ac-menu-height 10)
-;;(setq ac-auto-show-menu 0)
-;;(setq ac-ignore-case t)
 
 ;; flycheck
-;;(global-flycheck-mode t)
+(require 'flycheck)
+;; (global-flycheck-mode t)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 ;; flycheck-pos-tip

@@ -70,6 +70,7 @@
 
 ;; 搜索当前选中区域
 (defun occur-dwim ()
+
   "Call `occur' with a sane default."
   (interactive)
   (push (if (region-active-p)
@@ -81,6 +82,11 @@
 	      (regexp-quote sym))))
 	regexp-history)
   (call-interactively 'occur))
+
+
+;; case replace
+(setq case-replace nil)
+(setq case-fold-search nil)
 
 
 ;; ------------------- big things -------------------
