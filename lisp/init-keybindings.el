@@ -43,7 +43,7 @@
 (global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
 
 ;; ace-jump-mode
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "M-s") 'ace-jump-mode)
 
 ;; indent-region
 (global-set-key (kbd "M-s-ƒ") 'indent-region-or-buffer)
@@ -61,7 +61,7 @@
 (global-set-key (kbd "M-]") 'multi-term-next)
 
 ;; occur-dwim
-(global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "M-o") 'occur-dwim)
 
 ;; company mode
 (with-eval-after-load 'company
