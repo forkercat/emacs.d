@@ -56,7 +56,7 @@
 (global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
 
 ;; multi-term
-(global-set-key (kbd "C-t") 'get-term)
+(global-set-key (kbd "C-c m") 'get-term)
 (global-set-key (kbd "M-[") 'multi-term-prev)
 (global-set-key (kbd "M-]") 'multi-term-next)
 
@@ -68,7 +68,12 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-t") 'company-search-toggle-filtering)
+  )
+
 
 ;; expand-region
 (global-set-key (kbd "S-SPC") 'er/expand-region)
@@ -88,7 +93,6 @@
 (global-set-key (kbd "C-M-p") 'windmove-up)
 
 ;; org-mode
-
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'open-my-todo-org)
 (global-set-key (kbd "C-c n") 'open-my-note-org)

@@ -57,7 +57,7 @@
 (setq org-capture-templates
       '(
         ("i" "Inbox/Quick Notes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
-        ("r" "Remind" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
+        ("r" "Reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
         ("s" "TODO: Other(Study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
         ("t" "TODO: Trivia" entry (file+headline "~/Dropbox/org/todo.org" "Trivia") "* TODO %?\n\n")
         ("n" "Note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")

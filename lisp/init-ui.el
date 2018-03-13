@@ -2,7 +2,7 @@
 ;; ------------------------ init-ui.el ----------------------------
 
 ;;改变emacs标题栏的标题
-(setq frame-title-format "emacs@@@junhaowang")
+(setq frame-title-format "emacs@junhaow")
 
 ;; Display Line of Numbers
 (global-linum-mode t)
