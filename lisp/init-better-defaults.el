@@ -209,14 +209,34 @@
 
 
 ;; kill whole word :: maybe I'd better use expand region
-(defun kill-whole-word ()
+;; (defun kill-whole-word ()
+;;   (interactive)
+;;   (backward-word)
+;;   (kill-word 1))
+;; (global-set-key (kbd "C-c w") 'kill-whole-word)
+
+
+;; kill-curr-buffer
+(defun kill-curr-buffer ()
   (interactive)
-  (backward-word)
-  (kill-word 1))
-(global-set-key (kbd "C-c w") 'kill-whole-word)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'kill-curr-buffer)
 
 
-;; -------------- coding system ----------------
+;; copy whole line
+(defun copy-whole-line ()
+  (interactive)
+  (save-excursion
+    (kill-new
+     (buffer-substring (point-at-bol) (point-at-eol)))))
+(global-set-key (kbd "C-c l") 'copy-whole-line)
+
+
+;; kill all buffers
+(defun kill-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
 
 
 ;;新建文件的编码方式

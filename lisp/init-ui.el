@@ -4,8 +4,10 @@
 ;;改变emacs标题栏的标题
 (setq frame-title-format "emacs@junhaow")
 
-;; Display Line of Numbers
+;; Display line/column number
 (global-linum-mode t)
+(line-number-mode t)
+(column-number-mode t)
 
 ;;设置窗口位置
 (set-frame-position (selected-frame) 1282 40)

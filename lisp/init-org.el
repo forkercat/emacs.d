@@ -63,7 +63,10 @@
         ("n" "Note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
         ))
 
-
+;; src-templates
+(add-to-list 'org-structure-template-alist
+             '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
+             '("py" "#+BEGIN_SRC python\n?\n#+END_SRC"))
 
 
 ;; ------------------------ EOF ----------------------------
