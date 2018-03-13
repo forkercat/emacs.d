@@ -99,6 +99,9 @@
 (winner-mode t)
 
 
+;; ibuffer
+(setq ibuffer-expert t)
+
 
 ;; ------------------- big things -------------------
 

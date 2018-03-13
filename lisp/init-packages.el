@@ -103,11 +103,14 @@
 
 ;; ido-mode
 (setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'always)
+;; (setq ido-use-filename-at-point 'always)
 (setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)
-(setq ido-separator "\n* ")
 (ido-mode 1)
+
+;; ido-vertical-mdoe
+(ido-vertical-mode t)
+(setq ido-vertical-show-count t)
 
 
 ;; multiple-cursors

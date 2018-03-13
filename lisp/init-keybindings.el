@@ -101,6 +101,10 @@
 ;; popup-kill-ring
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
+;; ibuffer + ido buffer switching
+(global-set-key (kbd "C-x b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)
-

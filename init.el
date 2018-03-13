@@ -49,7 +49,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (popup-kill-ring company-irony hide-lines yasnippet-snippets company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
+    (ido-vertical-mode popup-kill-ring company-irony hide-lines yasnippet-snippets company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
  '(safe-local-variable-values (quote ((autoload-compute-prefixes)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
