@@ -56,7 +56,7 @@
 (global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
 
 ;; multi-term
-(global-set-key (kbd "C-c m") 'get-term)
+(global-set-key (kbd "C-t") 'get-term)
 (global-set-key (kbd "M-[") 'multi-term-prev)
 (global-set-key (kbd "M-]") 'multi-term-next)
 

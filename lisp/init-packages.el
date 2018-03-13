@@ -101,11 +101,14 @@
 (smex-initialize)
 
 
-;; ido-mode
+;; ido-mode & flx-ido
+(require 'flx-ido)
+(setq flx-ido-mode t)
 (setq ido-enable-flex-matching t)
 ;; (setq ido-use-filename-at-point 'always)
 (setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)
+(setq ido-use-faces t)
 (ido-mode 1)
 
 ;; ido-vertical-mdoe
@@ -255,6 +258,9 @@
 ;; swiper
 (require 'swiper)
 (global-set-key (kbd "C-s") 'swiper)
+
+
+
 
 
 ;; ------------------------ EOF ----------------------------
