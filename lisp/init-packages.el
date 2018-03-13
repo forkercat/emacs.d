@@ -245,6 +245,11 @@
 (my-global-rainbow-mode 1)
 
 
+;; smart-hungry-delete
+(require 'smart-hungry-delete)
+(smart-hungry-delete-add-default-hooks)
+(global-set-key (kbd "C-c <backspace>") 'smart-hungry-delete-backward-char)
+(global-set-key (kbd "C-c d") 'smart-hungry-delete-forward-char)
 
 
 ;; ------------------------ EOF ----------------------------

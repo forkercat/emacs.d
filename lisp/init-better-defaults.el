@@ -204,6 +204,17 @@
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 
 
+;; subword :: thisVar
+(global-subword-mode t)
+
+
+;; kill whole word :: maybe I'd better use expand region
+(defun kill-whole-word ()
+  (interactive)
+  (backward-word)
+  (kill-word 1))
+(global-set-key (kbd "C-c w") 'kill-whole-word)
+
 
 ;; -------------- coding system ----------------
 
