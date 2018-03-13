@@ -98,6 +98,8 @@
 (global-set-key (kbd "C-c n") 'open-my-note-org)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; popup-kill-ring
+(global-set-key (kbd "M-y") 'popup-kill-ring)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

@@ -90,151 +90,152 @@
 ;; after-load company-mode
 (with-eval-after-load 'company
   (add-hook 'c++-mode-hook 'company-mode)
-  (add-hook 'c-mode-hook 'cmopany-mode)
-  (add-hook 'python-mode-hook 'cmopany-mode)
+  (add-hook 'c-mode-hook 'company-mode)
+  (add-hook 'python-mode-hook 'company-mode)
+  (add-hook 'emacs-lisp-mode-hook 'company-mode)
   )
 
 
-  ;; Smex
-  (require 'smex) 
-  (smex-initialize)
+;; Smex
+(require 'smex) 
+(smex-initialize)
 
 
-  ;; ido-mode
-  (setq ido-enable-flex-matching t)
-  (setq ido-use-filename-at-point 'always)
-  (setq ido-enable-last-directory-history nil)
-  (setq ido-everywhere t)
-  (setq ido-separator "\n* ")
-  (ido-mode 1)
+;; ido-mode
+(setq ido-enable-flex-matching t)
+(setq ido-use-filename-at-point 'always)
+(setq ido-enable-last-directory-history nil)
+(setq ido-everywhere t)
+(setq ido-separator "\n* ")
+(ido-mode 1)
 
 
-  ;; multiple-cursors
-  (require 'multiple-cursors)
+;; multiple-cursors
+(require 'multiple-cursors)
 
 
-  ;; ace-jump-mode
-  (autoload
-    'ace-jump-mode
-    "ace-jump-mode"
-    "Emacs quick move minor mode"
-    t)
-  ;; 
-  ;; enable a more powerful jump back function from ace jump mode
-  ;;
-  (autoload
-    'ace-jump-mode-pop-mark
-    "ace-jump-mode"
-    "Ace jump back:-)"
-    t)
-  (eval-after-load "ace-jump-mode"
-    '(ace-jump-mode-enable-mark-sync))
+;; ace-jump-mode
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
 
 
-  ;; popwin
-  (require 'popwin)
-  (popwin-mode 1)
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
 
 
-  ;; window-numbering
-  (require 'window-numbering)  
-  (window-numbering-mode 1)
+;; window-numbering
+(require 'window-numbering)  
+(window-numbering-mode 1)
 
 
-  ;; reveal-in-osx-finder
-  (require 'reveal-in-osx-finder)
+;; reveal-in-osx-finder
+(require 'reveal-in-osx-finder)
 
 
-  ;; multi-term
-  (require 'multi-term)
-  (setq multi-term-program "/bin/zsh")
-  (setq multi-term-buffer-name "bad-term")
-  ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
-  (setq system-uses-terminfo nil)
+;; multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+(setq multi-term-buffer-name "bad-term")
+;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
+(setq system-uses-terminfo nil)
 
 
-  ;; term-bind-key
-  (add-to-list 'term-bind-key-alist '("C-t"))
+;; term-bind-key
+(add-to-list 'term-bind-key-alist '("C-t"))
 
-  (defun last-term-buffer (l)
-    "Return most recently used term buffer."
-    (when l
-      (if (eq 'term-mode (with-current-buffer (car l) major-mode))
-          (car l) (last-term-buffer (cdr l)))))
+(defun last-term-buffer (l)
+  "Return most recently used term buffer."
+  (when l
+    (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+        (car l) (last-term-buffer (cdr l)))))
 
-  (defun get-term ()
-    "Switch to the term buffer last used, or create a new one if
+(defun get-term ()
+  "Switch to the term buffer last used, or create a new one if
     none exists, or if the current buffer is already a term."
-    (interactive)
-    (let ((b (last-term-buffer (buffer-list))))
-      (if (or (not b) (eq 'term-mode major-mode))
-          (progn (multi-term)
-                 (message "create a new multi-term!"))
-        (progn (switch-to-buffer b)
-               (message "switch a exist multi-term!")))))
+  (interactive)
+  (let ((b (last-term-buffer (buffer-list))))
+    (if (or (not b) (eq 'term-mode major-mode))
+        (progn (multi-term)
+               (message "create a new multi-term!"))
+      (progn (switch-to-buffer b)
+             (message "switch a exist multi-term!")))))
 
 
-  ;; web-mode
-  (require 'web-mode)
-  (setq auto-mode-alist
-        (append
-         '(("\\.html\\'" . web-mode))
-         auto-mode-alist))
+;; web-mode
+(require 'web-mode)
+(setq auto-mode-alist
+      (append
+       '(("\\.html\\'" . web-mode))
+       auto-mode-alist))
 
 
-  ;; expand-region
-  (require 'expand-region)
-
-
-
-  ;; windresize
-  (require 'windresize)
-
-
-  ;; hideshowvis
-  (require 'hideshowvis)
-  (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
-  (autoload 'hideshowvis-minor-mode
-    "hideshowvis"
-    "Will indicate regions foldable with hideshow in the fringe."
-    'interactive)
-  (dolist (hook (list 'emacs-lisp-mode-hook
-                      'c++-mode-hook
-                      'c-mode-hook
-                      'cc-mode-hook
-                      'python-mode-hook
-                      'html-mode-hook
-                      'web-mode-hook))
-    (add-hook hook 'hideshowvis-enable))
-
-
-  ;; hideshow
-  (require 'hideshow)
-  (setq hs-allow-nesting t)
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (hs-minor-mode 1)
-              ))
-  (add-hook 'emacs-lisp-mode-hook
-            (lambda()
-              (hs-minor-mode 1)))
-  (add-hook 'cc-mode-common-hook
-            (lambda ()
-              (hs-minor-mode 1)
-              ))
-  (add-hook 'c++-mode-common-hook
-            (lambda ()
-              (hs-minor-mode 1)
-              ))
-  (add-hook 'python-mode-common-hook
-            (lambda ()
-              (hs-minor-mode 1)
-              ))
+;; expand-region
+(require 'expand-region)
 
 
 
-  ;; ------------------------ EOF ----------------------------
-  (provide 'init-packages)
+;; windresize
+(require 'windresize)
+
+
+;; hideshowvis
+(require 'hideshowvis)
+(autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+(autoload 'hideshowvis-minor-mode
+  "hideshowvis"
+  "Will indicate regions foldable with hideshow in the fringe."
+  'interactive)
+(dolist (hook (list 'emacs-lisp-mode-hook
+                    'c++-mode-hook
+                    'c-mode-hook
+                    'cc-mode-hook
+                    'python-mode-hook
+                    'html-mode-hook
+                    'web-mode-hook))
+  (add-hook hook 'hideshowvis-enable))
+
+
+;; hideshow
+(require 'hideshow)
+(setq hs-allow-nesting t)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (hs-minor-mode 1)))
+(add-hook 'cc-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'c++-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'python-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+
+
+
+;; ------------------------ EOF ----------------------------
+(provide 'init-packages)
 
 
 
