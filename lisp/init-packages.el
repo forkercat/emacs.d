@@ -252,11 +252,13 @@
 (global-set-key (kbd "C-c d") 'smart-hungry-delete-forward-char)
 
 
+;; swiper
+(require 'swiper)
+(global-set-key (kbd "C-s") 'swiper)
 
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-packages)
-
 
 
 

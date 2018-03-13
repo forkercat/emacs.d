@@ -74,10 +74,11 @@
   (define-key company-search-map (kbd "C-t") 'company-search-toggle-filtering)
   )
 
-
 ;; expand-region
+(global-set-key (kbd "C-o") 'er/expand-region)
 (global-set-key (kbd "S-SPC") 'er/expand-region)
-(global-set-key (kbd "M-SPC") 'er/contract-region)
+(global-set-key (kbd "C-c o") 'er/contract-region)
+(global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
 
 ;; windresize
 (global-set-key (kbd "C-c w") 'windresize)
