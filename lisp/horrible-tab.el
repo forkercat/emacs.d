@@ -1,3 +1,6 @@
+;; Captured from
+;; https://ignaciopp.wordpress.com/2009/06/17/emacs-indentunindent-region-as-a-block-using-the-tab-key/
+
 ;; turn on transient mark mode
 ;;(that is, we highlight the selected text)
 (transient-mark-mode t)
