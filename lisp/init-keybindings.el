@@ -87,6 +87,13 @@
 (global-set-key (kbd "C-M-n") 'windmove-down)
 (global-set-key (kbd "C-M-p") 'windmove-up)
 
+;; org-mode
+
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c t") 'open-my-todo-org)
+(global-set-key (kbd "C-c n") 'open-my-note-org)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)
