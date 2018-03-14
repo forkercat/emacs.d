@@ -260,6 +260,10 @@
 (global-set-key (kbd "C-s") 'swiper)
 
 
+;; projectile
+(require 'projectile)
+(projectile-mode)
+
 
 
 
