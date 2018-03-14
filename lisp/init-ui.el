@@ -65,12 +65,6 @@
 ;; set font size
 (set-face-attribute 'default nil :font "Menlo-13")
 
-;; Chinese Font 哈士奇坏蛋
-;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;; 	(set-fontset-font (frame-parameter nil 'font)
-;; 					  charset
-;; 					  (font-spec :family "Microsoft Yahei" :size 12)))
-
 ;; highlight current line
 
 ;; (global-hl-line-mode t)
@@ -92,7 +86,7 @@
 
 
 ;; background color
-;; (set-background-color "#000000")  ; black
+(set-background-color "#101010")  ; black
 
 
 

@@ -265,6 +265,9 @@
 (projectile-mode)
 
 
+;; dumb-jump
+(dumb-jump-mode)
+(setq dumb-jump-prefer-searcher 'ag)
 
 
 ;; ------------------------ EOF ----------------------------
