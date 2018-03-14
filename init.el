@@ -39,7 +39,6 @@
 (require 'init-org)
 (require 'init-ui)
 (require 'init-keybindings)
-(require 'custom)
 ;;
 ;; ------------------------ EOF ----------------------------
 
@@ -50,7 +49,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet-snippets company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
+    (dumb-jump flx-ido projectile swiper spaceline company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
  '(safe-local-variable-values (quote ((autoload-compute-prefixes)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

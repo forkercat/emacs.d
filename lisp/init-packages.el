@@ -13,8 +13,8 @@
                            ("melpa-milkbox" . "http://melpa.milkbox.net/packages/")
                            ;;("melpa" . "http://melpa.org/packages/")
                            ("melpa-stable" . "http://stable.melpa.org/packages/"))))
-  
-  (package-initialize)
+
+(package-initialize)
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 
@@ -77,8 +77,23 @@
 ;;(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
 
 
-;; company
-(global-company-mode t)
+;; company & company-irony
+(setq company-idle-delay 0)
+(setq company-show-numbers t)
+;; backends
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+;; irony
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-modo-hook 'irony-cdb-autosetup-compile-options)
+;; after-load company-mode
+(with-eval-after-load 'company
+  (add-hook 'c++-mode-hook 'company-mode)
+  (add-hook 'c-mode-hook 'company-mode)
+  (add-hook 'python-mode-hook 'company-mode)
+  (add-hook 'emacs-lisp-mode-hook 'company-mode)
+  )
 
 
 ;; Smex
@@ -86,13 +101,19 @@
 (smex-initialize)
 
 
-;; ido-mode
+;; ido-mode & flx-ido
+(require 'flx-ido)
+(setq flx-ido-mode t)
 (setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'always)
+;; (setq ido-use-filename-at-point 'always)
 (setq ido-enable-last-directory-history nil)
 (setq ido-everywhere t)
-(setq ido-separator "\n* ")
+(setq ido-use-faces t)
 (ido-mode 1)
+
+;; ido-vertical-mdoe
+(ido-vertical-mode t)
+(setq ido-vertical-show-count t)
 
 
 ;; multiple-cursors
@@ -115,6 +136,7 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
+(setq ace-jump-mode-submode-list '(ace-jump-word-mode ace-jump-line-mode))
 
 
 ;; popwin
@@ -170,13 +192,86 @@
 
 ;; expand-region
 (require 'expand-region)
-(global-set-key (kbd "S-SPC") 'er/expand-region)
-(global-set-key (kbd "M-SPC") 'er/contract-region)
+
+
+
+;; windresize
+(require 'windresize)
+
+
+;; hideshowvis
+(require 'hideshowvis)
+(autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+(autoload 'hideshowvis-minor-mode
+  "hideshowvis"
+  "Will indicate regions foldable with hideshow in the fringe."
+  'interactive)
+(dolist (hook (list 'emacs-lisp-mode-hook
+                    'c++-mode-hook
+                    'c-mode-hook
+                    'cc-mode-hook
+                    'python-mode-hook
+                    'html-mode-hook
+                    'web-mode-hook))
+  (add-hook hook 'hideshowvis-enable))
+
+
+;; hideshow
+(require 'hideshow)
+(setq hs-allow-nesting t)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (hs-minor-mode 1)))
+(add-hook 'cc-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'c++-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+(add-hook 'python-mode-common-hook
+          (lambda ()
+            (hs-minor-mode 1)
+            ))
+
+
+;; rainbow-mode
+;; rainbow-mode isn't a global minor mode, so it needs to be enabled on a per-buffer basis.
+(require 'rainbow-mode)
+(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
+(my-global-rainbow-mode 1)
+
+
+;; smart-hungry-delete
+(require 'smart-hungry-delete)
+(smart-hungry-delete-add-default-hooks)
+(global-set-key (kbd "C-c <backspace>") 'smart-hungry-delete-backward-char)
+(global-set-key (kbd "C-c d") 'smart-hungry-delete-forward-char)
+
+
+;; swiper
+(require 'swiper)
+(global-set-key (kbd "C-s") 'swiper)
+
+
+;; projectile
+(require 'projectile)
+(projectile-mode)
+
+
+;; dumb-jump
+(dumb-jump-mode)
+(setq dumb-jump-prefer-searcher 'ag)
 
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-packages)
-
 
 
 

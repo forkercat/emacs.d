@@ -29,29 +29,45 @@
 ;; output headers with order number
 (setq org-export-with-section-numbers t)
 
-;; indent
-(setq org-indent-mode t)
-
 ;; agenda
 (setq org-agenda-files (list "~/Dropbox/org/todo.org"))
-(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; TODO keywords
 (setq org-todo-keyword-faces
       '(("PENDING" . "#27BDAD") ("CANCELED" . "#D33535")
-      ))
+        ))
 
 ;; open my todo.org
 (defun open-my-todo-org ()
-    (interactive)
-    (find-file "~/Dropbox/org/todo.org"))
-(global-set-key (kbd "C-c t") 'open-my-todo-org)
+  (interactive)
+  (find-file "~/Dropbox/org/todo.org"))
 
 ;; open my note.org
 (defun open-my-note-org ()
   (interactive)
   (find-file "~/Dropbox/org/note.org"))
-(global-set-key (kbd "C-c n") 'open-my-note-org)
+
+;; open in the current window
+(setq org-agenda-window-setup 'current-window)
+
+
+;; org-capture
+(setq org-default-notes-file (concat org-directory "~/Dropbox/org/todo.org"))
+
+(setq org-capture-templates
+      '(
+        ("i" "Inbox/Quick Notes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
+        ("r" "Reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
+        ("s" "TODO: Other(Study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
+        ("t" "TODO: Trivia" entry (file+headline "~/Dropbox/org/todo.org" "Trivia") "* TODO %?\n\n")
+        ("n" "Note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
+        ))
+
+;; src-templates
+(add-to-list 'org-structure-template-alist
+             '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
+             '("py" "#+BEGIN_SRC python\n?\n#+END_SRC"))
+
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-org)

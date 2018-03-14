@@ -2,10 +2,12 @@
 ;; ------------------------ init-ui.el ----------------------------
 
 ;;改变emacs标题栏的标题
-(setq frame-title-format "emacs@@@junhaowang")
+(setq frame-title-format "emacs@junhaow")
 
-;; Display Line of Numbers
+;; Display line/column number
 (global-linum-mode t)
+(line-number-mode t)
+(column-number-mode t)
 
 ;;设置窗口位置
 (set-frame-position (selected-frame) 1282 40)
@@ -63,12 +65,6 @@
 ;; set font size
 (set-face-attribute 'default nil :font "Menlo-13")
 
-;; Chinese Font 哈士奇坏蛋
-;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;; 	(set-fontset-font (frame-parameter nil 'font)
-;; 					  charset
-;; 					  (font-spec :family "Microsoft Yahei" :size 12)))
-
 ;; highlight current line
 
 ;; (global-hl-line-mode t)
@@ -90,7 +86,7 @@
 
 
 ;; background color
-;; (set-background-color "#000000")  ; black
+(set-background-color "#101010")  ; black
 
 
 

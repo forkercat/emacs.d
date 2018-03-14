@@ -61,7 +61,7 @@ defining them in this alist."
     ("zenburn-bg-05"    . "#383838")
     ("zenburn-bg"       . "#000000")   ;; line number
     ("zenburn-bg+05"    . "#494949")
-    ("zenburn-bg+1"     . "#0D0D0D")   ;; margin
+    ("zenburn-bg+1"     . "#000000")   ;; margin  ;; 0D0D0D
     ("zenburn-bg+2"     . "#5F5F5F")
     ("zenburn-bg+3"     . "#6F6F6F")
     ("zenburn-red+2"    . "#ECB3B3")
