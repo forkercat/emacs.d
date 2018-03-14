@@ -36,7 +36,7 @@ or expand the word preceding point. "
       (indent-block)
     (if (looking-at "\\>")
         (hippie-expand nil)
-      (insert "\t"))))
+      (insert "    "))))
 
 (defun my-unindent()
   "Unindent line, or block if it's a region selected.

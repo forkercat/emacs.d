@@ -49,7 +49,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dumb-jump flx-ido projectile swiper spaceline company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
+    (virtualenvwrapper diminish elpy dumb-jump flx-ido projectile swiper spaceline company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
  '(safe-local-variable-values (quote ((autoload-compute-prefixes)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

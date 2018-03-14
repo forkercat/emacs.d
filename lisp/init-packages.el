@@ -67,35 +67,6 @@
 (yas/global-mode 1)
 
 
-;; flycheck
-(require 'flycheck)
-;; (global-flycheck-mode t)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-
-;; flycheck-pos-tip
-;;(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
-
-
-;; company & company-irony
-(setq company-idle-delay 0)
-(setq company-show-numbers t)
-;; backends
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-;; irony
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'irony-modo-hook 'irony-cdb-autosetup-compile-options)
-;; after-load company-mode
-(with-eval-after-load 'company
-  (add-hook 'c++-mode-hook 'company-mode)
-  (add-hook 'c-mode-hook 'company-mode)
-  (add-hook 'python-mode-hook 'company-mode)
-  (add-hook 'emacs-lisp-mode-hook 'company-mode)
-  )
-
-
 ;; Smex
 (require 'smex) 
 (smex-initialize)
@@ -163,6 +134,7 @@
 
 ;; term-bind-key
 (add-to-list 'term-bind-key-alist '("C-t"))
+(add-to-list 'term-bind-key-alist '("C-q"))
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -268,6 +240,64 @@
 ;; dumb-jump
 (dumb-jump-mode)
 (setq dumb-jump-prefer-searcher 'ag)
+
+
+;; diminish
+(require 'diminish)
+(diminish 'abbrev-mode)
+(diminish 'projectile-mode "Proj")
+
+
+
+;; ------------------------------- code --------------------------------
+
+
+;; elpy
+(elpy-enable)
+(setq elpy-rpc-pythonpath "/usr/local/bin/python3")
+(setq elpy-rpc-backend "jedi")
+(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
+
+
+;; flycheck
+(require 'flycheck)
+(global-flycheck-mode t)
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; flycheck-pos-tip
+(with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
+
+
+;; company & company-irony
+(setq company-idle-delay 0)
+(setq company-show-numbers t)
+(setq company-minimum-prefix-length 2)
+;; backends
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+;; irony
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-modo-hook 'irony-cdb-autosetup-compile-options)
+;; after-load company-mode
+(with-eval-after-load 'company
+  (add-hook 'c++-mode-hook 'company-mode)
+  (add-hook 'c-mode-hook 'company-mode)
+  (add-hook 'python-mode-hook 'company-mode)
+  (add-hook 'emacs-lisp-mode-hook 'company-mode)
+  )
+
+
+;; virtualenvwrapper
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/.virtualenvs/")
+;; workon "dev"
+(pyvenv-workon "dev")
+
 
 
 ;; ------------------------ EOF ----------------------------

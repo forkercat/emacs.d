@@ -59,9 +59,9 @@ defining them in this alist."
     ("zenburn-bg-2"     . "#1A1A1A")
     ("zenburn-bg-1"     . "#2B2B2B")
     ("zenburn-bg-05"    . "#383838")
-    ("zenburn-bg"       . "#000000")   ;; line number
+    ("zenburn-bg"       . "#101010")   ;; line number
     ("zenburn-bg+05"    . "#494949")
-    ("zenburn-bg+1"     . "#000000")   ;; margin  ;; 0D0D0D
+    ("zenburn-bg+1"     . "#101010")   ;; margin  ;; 0D0D0D
     ("zenburn-bg+2"     . "#5F5F5F")
     ("zenburn-bg+3"     . "#6F6F6F")
     ("zenburn-red+2"    . "#ECB3B3")

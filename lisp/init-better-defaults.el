@@ -2,7 +2,7 @@
 ;; ------------------------ init-better-defaults.el ----------------------------
 
 ;; horrible-tab
-(require 'horrible-tab)
+;;(require 'horrible-tab)
 
 ;;可怕的缩进
 (setq-default indent-tabs-mode nil) ; tab 改为插入空格
@@ -10,7 +10,9 @@
 (setq tab-width 4)
 (setq c-basic-offset 4) ;;c/c++ 缩进4个空格
 (setq c-default-style "linux")   ;;没有这个 { } 就会瞎搞
-(setq python-indent-offset 4)
+(setq python-indent 4)
+(setq python-indent-guess-indent-offset nil)
+
 
 ;; match
 (require 'electric)
