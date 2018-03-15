@@ -2,15 +2,17 @@
 ;; ------------------------ init-better-defaults.el ----------------------------
 
 ;; horrible-tab
-(require 'horrible-tab)
+;;(require 'horrible-tab)
 
-;;可怕的缩进
+;;可怕的缩进 目前没有其他语言缩进
 (setq-default indent-tabs-mode nil) ; tab 改为插入空格
 (setq default-tab-width 4)
 (setq tab-width 4)
 (setq c-basic-offset 4) ;;c/c++ 缩进4个空格
 (setq c-default-style "linux")   ;;没有这个 { } 就会瞎搞
-(setq python-indent-offset 4)
+(setq python-indent 4)
+(setq python-indent-guess-indent-offset nil)
+
 
 ;; match
 (require 'electric)
@@ -55,7 +57,7 @@
       scroll-conservatively 10000)
 
 ;; smooth scrolling when using mouse
-(setq mouse-wheel-scroll-amount '(0.04))
+(setq mouse-wheel-scroll-amount '(0.06))
 (setq mouse-wheel-progressive-speed nil)
 
 ;; open recent files
