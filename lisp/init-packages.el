@@ -254,9 +254,8 @@
 
 ;; elpy
 (elpy-enable)
-(setq elpy-rpc-pythonpath "/usr/local/bin/python3")
+;;(setq elpy-rpc-pythonpath "/usr/local/bin/python3")
 (setq elpy-rpc-backend "jedi")
-(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 
 
 ;; flycheck
@@ -295,7 +294,7 @@
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
 (setq venv-location "~/.virtualenvs/")
-;; workon "dev"
+;;  workon "dev"
 (pyvenv-workon "dev")
 
 

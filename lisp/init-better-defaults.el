@@ -4,7 +4,7 @@
 ;; horrible-tab
 ;;(require 'horrible-tab)
 
-;;可怕的缩进
+;;可怕的缩进 目前没有其他语言缩进
 (setq-default indent-tabs-mode nil) ; tab 改为插入空格
 (setq default-tab-width 4)
 (setq tab-width 4)

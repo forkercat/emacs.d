@@ -115,7 +115,9 @@
 (global-set-key (kbd "M-g x") 'dumb-jump-go-prefer-external)
 (global-set-key (kbd "M-g z") 'dumb-jump-go-prefer-external-other-window)
 
-
+;; elpy
+(define-key elpy-mode-map (kbd "C-c C-d") nil)
+(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 
 
 ;; ------------------------ EOF ----------------------------
