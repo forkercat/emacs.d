@@ -121,5 +121,9 @@
 (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition)
 (define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

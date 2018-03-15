@@ -303,6 +303,10 @@
 
 
 
+;; magit
+(require 'magit)
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-packages)
 
