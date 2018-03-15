@@ -72,7 +72,6 @@
   (define-key company-search-map (kbd "C-n") 'company-select-next)
   (define-key company-search-map (kbd "C-p") 'company-select-previous)
   (define-key company-search-map (kbd "C-t") 'company-search-toggle-filtering)
-  (define-key company-active-map (kbd "tab") 'company-complete-selection)
   (define-key company-active-map [tab] 'company-complete-selection)
   )
 
