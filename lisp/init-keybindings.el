@@ -118,7 +118,8 @@
 (define-key elpy-mode-map (kbd "C-c C-d") nil)
 (define-key elpy-mode-map (kbd "M-RET") 'elpy-shell-send-region-or-buffer)
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
-
+(define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition)
+(define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

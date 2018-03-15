@@ -244,23 +244,22 @@
 ;; diminish
 (require 'diminish)
 (diminish 'abbrev-mode)
-(diminish 'projectile-mode "Proj")
-
+(diminish 'projectile-mode "pj")
 
 
 ;; ------------------------------- code --------------------------------
 
 
 ;; elpy
-(elpy-enable)
-;;(setq python-shell-interpreter "python"
-;;      python-shell-interpreter-args "-i"
 (setq python-shell-interpreter "jupyter"
       python-shell-interpreter-args "console --simple-promp"
       python-shell-prompt-detect-enabled nil
       python-shell-completion-native-enable nil)
 (setq elpy-rpc-backend "jedi")
-
+(setq elpy-remove-modeline-lighter nil)
+(elpy-enable)
+;;(setq python-shell-interpreter "python"
+;;      python-shell-interpreter-args "-i"
 
 ;; damn it! Fixed the coding issue in Chinese
 (setenv "LANG" "en_US.UTF-8")
@@ -279,23 +278,14 @@
 
 
 ;; company & company-irony
+(global-company-mode t)
 (setq company-idle-delay 0)
 (setq company-show-numbers t)
 (setq company-minimum-prefix-length 2)
-;; backends
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-;; irony
+
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'irony-modo-hook 'irony-cdb-autosetup-compile-options)
-;; after-load company-mode
-(with-eval-after-load 'company
-  (add-hook 'c++-mode-hook 'company-mode)
-  (add-hook 'c-mode-hook 'company-mode)
-  (add-hook 'python-mode-hook 'company-mode)
-  (add-hook 'emacs-lisp-mode-hook 'company-mode)
-  )
 
 
 ;; virtualenvwrapper
