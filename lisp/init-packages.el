@@ -251,8 +251,8 @@
 
 
 ;; elpy
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-promp"
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-promp"
       python-shell-prompt-detect-enabled nil
       python-shell-completion-native-enable nil)
 (setq elpy-rpc-backend "jedi")
