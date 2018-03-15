@@ -252,6 +252,11 @@
 (diminish 'projectile-mode "pj")
 
 
+;; org-bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode)))
+
+
 ;; ------------------------------- code --------------------------------
 
 
@@ -300,8 +305,6 @@
 (setq venv-location "~/.virtualenvs/")
 ;;  workon "dev"
 (pyvenv-workon "dev")
-
-
 
 ;; ein
 ;;(require 'ein)
