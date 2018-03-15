@@ -58,6 +58,10 @@
 ;; ------------------------ package details ----------------------------
 
 
+;; magit
+(require 'magit)
+
+
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-snippets")
@@ -214,9 +218,10 @@
 ;; rainbow-mode
 ;; rainbow-mode isn't a global minor mode, so it needs to be enabled on a per-buffer basis.
 (require 'rainbow-mode)
-(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
-  (lambda () (rainbow-mode 1)))
-(my-global-rainbow-mode 1)
+;; conflict with magit
+;;(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+;;  (lambda () (rainbow-mode 1)))
+;;(my-global-rainbow-mode 1)
 
 
 ;; smart-hungry-delete
@@ -300,11 +305,6 @@
 
 ;; ein
 ;;(require 'ein)
-
-
-
-;; magit
-(require 'magit)
 
 
 ;; ------------------------ EOF ----------------------------
