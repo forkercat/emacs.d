@@ -57,7 +57,7 @@
       scroll-conservatively 10000)
 
 ;; smooth scrolling when using mouse
-(setq mouse-wheel-scroll-amount '(0.04))
+(setq mouse-wheel-scroll-amount '(0.06))
 (setq mouse-wheel-progressive-speed nil)
 
 ;; open recent files

@@ -131,7 +131,6 @@
 ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
 (setq system-uses-terminfo nil)
 
-
 ;; term-bind-key
 (add-to-list 'term-bind-key-alist '("C-t"))
 (add-to-list 'term-bind-key-alist '("C-q"))
@@ -254,8 +253,18 @@
 
 ;; elpy
 (elpy-enable)
-;;(setq elpy-rpc-pythonpath "/usr/local/bin/python3")
+;;(setq python-shell-interpreter "python"
+;;      python-shell-interpreter-args "-i"
+(setq python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-promp"
+      python-shell-prompt-detect-enabled nil
+      python-shell-completion-native-enable nil)
 (setq elpy-rpc-backend "jedi")
+
+
+;; damn it! Fixed the coding issue in Chinese
+(setenv "LANG" "en_US.UTF-8")
+(setenv "PYTHONIOENCODING" "utf-8")
 
 
 ;; flycheck
@@ -296,6 +305,11 @@
 (setq venv-location "~/.virtualenvs/")
 ;;  workon "dev"
 (pyvenv-workon "dev")
+
+
+
+;; ein
+;;(require 'ein)
 
 
 

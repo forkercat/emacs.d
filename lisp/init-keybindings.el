@@ -117,6 +117,7 @@
 
 ;; elpy
 (define-key elpy-mode-map (kbd "C-c C-d") nil)
+(define-key elpy-mode-map (kbd "M-RET") 'elpy-shell-send-region-or-buffer)
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 
 
