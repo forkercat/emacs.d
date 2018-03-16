@@ -124,6 +124,9 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; uimage
+(define-key uimage-mode-map (kbd "C-c p") 'uimage-display-images)
+
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

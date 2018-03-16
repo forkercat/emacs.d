@@ -56,11 +56,11 @@
 
 (setq org-capture-templates
       '(
-        ("i" "Inbox/Quick Notes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
-        ("r" "Reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
-        ("s" "TODO: Other(Study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
-        ("t" "TODO: Trivia" entry (file+headline "~/Dropbox/org/todo.org" "Trivia") "* TODO %?\n\n")
-        ("n" "Note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
+        ("i" "inbox/quick qotes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
+        ("r" "reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
+        ("s" "todo (study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
+        ("t" "todo (little stuff)" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* TODO %?\n\n")
+        ("n" "note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
         ))
 
 ;; src-templates
@@ -71,6 +71,10 @@
 ;; visual-line-mode
 (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
 
+
+;; image size - not working
+;; (setq org-image-actual-width nil)
+;; (image-type-available-p 'imagemagick)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-org)
