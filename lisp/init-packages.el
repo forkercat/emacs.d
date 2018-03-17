@@ -262,6 +262,17 @@
 (add-hook 'org-mode-hook 'uimage-mode)
 
 
+;; matlab-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/matlab-mode")
+(require 'matlab)
+(autoload 'matlab-mode "matlab" "Enter MATLAB mode." t)
+(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
+(autoload 'matlab-shell "matlab" "Interactive MATLAB mode." t)
+(autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+(setq matlab-indent-function t)
+(setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
+(setq matlab-shell-command-switches (list "-nodesktop"))
+
 
 
 ;; ------------------------------- code --------------------------------
@@ -290,12 +301,16 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+(eval-after-load 'flycheck
+  '(require 'flycheck-matlab-mlint))
+
 ;; flycheck-pos-tip
 (with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
 
 
 ;; company & company-irony
 (global-company-mode t)
+(add-to-list 'company-backends 'company-matlab)
 (setq company-idle-delay 0)
 (setq company-show-numbers t)
 (setq company-minimum-prefix-length 3)
@@ -320,6 +335,7 @@
 
 ;; ein
 ;;(require 'ein)
+
 
 
 

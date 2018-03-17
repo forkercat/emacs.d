@@ -76,5 +76,27 @@
 ;; (setq org-image-actual-width nil)
 ;; (image-type-available-p 'imagemagick)
 
+
+;; latex-preview
+(setq org-latex-create-formula-image-program 'dvipng)
+
+;;(setq org-latex-image-default-width ".20\\linewidth")
+
+;; set env variable for texlive
+(let (
+      (my-paths
+       '("~/bin"
+         "/usr/local/bin"
+         "/usr/bin"
+         "/Library/TeX/texbin" ; add path to basictex bin
+         "/usr/local/texlive/2017basic/bin"
+         "/bin"
+         )))
+  (setenv "PATH" (concat (getenv "PATH") ":"
+                         (mapconcat 'identity my-paths ":")))
+  (setq exec-path (append my-paths (list "." exec-directory))))
+
+
+
 ;; ------------------------ EOF ----------------------------
 (provide 'init-org)

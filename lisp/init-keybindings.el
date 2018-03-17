@@ -127,6 +127,8 @@
 ;; uimage
 (define-key uimage-mode-map (kbd "C-c p") 'uimage-display-images)
 
+;; matlab-mode
+(define-key matlab-mode-map (kbd "s-r") 'matlab-shell-run-region-or-line)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)
