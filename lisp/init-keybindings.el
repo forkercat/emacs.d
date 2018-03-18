@@ -88,11 +88,11 @@
 (global-set-key (kbd "C-x <left>") 'winner-undo)
 (global-set-key (kbd "C-x <right>") 'winner-redo)
 
-;; windmove
-(global-set-key (kbd "C-M-f") 'windmove-right)
-(global-set-key (kbd "C-M-b") 'windmove-left)
-(global-set-key (kbd "C-M-n") 'windmove-down)
-(global-set-key (kbd "C-M-p") 'windmove-up)
+;; windmove - not convenient
+;;(global-set-key (kbd "C-M-f") 'windmove-right)
+;;(global-set-key (kbd "C-M-b") 'windmove-left)
+;;(global-set-key (kbd "C-M-n") 'windmove-down)
+;;(global-set-key (kbd "C-M-p") 'windmove-up)
 
 ;; org-mode
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -120,6 +120,15 @@
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition)
 (define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; uimage
+(define-key uimage-mode-map (kbd "C-c p") 'uimage-display-images)
+
+;; matlab-mode
+(define-key matlab-mode-map (kbd "s-r") 'matlab-shell-run-region-or-line)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

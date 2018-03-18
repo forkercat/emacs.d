@@ -56,17 +56,46 @@
 
 (setq org-capture-templates
       '(
-        ("i" "Inbox/Quick Notes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
-        ("r" "Reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
-        ("s" "TODO: Other(Study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
-        ("t" "TODO: Trivia" entry (file+headline "~/Dropbox/org/todo.org" "Trivia") "* TODO %?\n\n")
-        ("n" "Note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
+        ("i" "inbox/quick qotes" entry (file+headline "~/Dropbox/org/todo.org" "Quick Notes") "* %?\n\n")
+        ("r" "reminder" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* %?\n\n")       
+        ("s" "todo (study)" entry (file+headline "~/Dropbox/org/todo.org" "Other(Study)") "* TODO %?\n\n")
+        ("t" "todo (little stuff)" entry (file+headline "~/Dropbox/org/todo.org" "Reminder") "* TODO %?\n\n")
+        ("n" "note" entry (file+headline "~/Dropbox/org/note.org" "Uncategorized") "* %?\n\n")
         ))
 
 ;; src-templates
 (add-to-list 'org-structure-template-alist
              '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
              '("py" "#+BEGIN_SRC python\n?\n#+END_SRC"))
+
+;; visual-line-mode
+(add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
+
+
+;; image size - not working
+;; (setq org-image-actual-width nil)
+;; (image-type-available-p 'imagemagick)
+
+
+;; latex-preview
+(setq org-latex-create-formula-image-program 'dvipng)
+
+;;(setq org-latex-image-default-width ".20\\linewidth")
+
+;; set env variable for texlive
+(let (
+      (my-paths
+       '("~/bin"
+         "/usr/local/bin"
+         "/usr/bin"
+         "/Library/TeX/texbin" ; add path to basictex bin
+         "/usr/local/texlive/2017basic/bin"
+         "/bin"
+         )))
+  (setenv "PATH" (concat (getenv "PATH") ":"
+                         (mapconcat 'identity my-paths ":")))
+  (setq exec-path (append my-paths (list "." exec-directory))))
+
 
 
 ;; ------------------------ EOF ----------------------------

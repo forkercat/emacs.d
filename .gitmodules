@@ -1,0 +1,3 @@
+[submodule "plugins/matlab-mode"]
+	path = plugins/matlab-mode
+	url = git@github.com:pronobis/matlab-mode.git

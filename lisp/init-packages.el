@@ -58,6 +58,10 @@
 ;; ------------------------ package details ----------------------------
 
 
+;; magit
+(require 'magit)
+
+
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-snippets")
@@ -214,9 +218,10 @@
 ;; rainbow-mode
 ;; rainbow-mode isn't a global minor mode, so it needs to be enabled on a per-buffer basis.
 (require 'rainbow-mode)
-(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
-  (lambda () (rainbow-mode 1)))
-(my-global-rainbow-mode 1)
+;; conflict with magit
+;;(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+;;  (lambda () (rainbow-mode 1)))
+;;(my-global-rainbow-mode 1)
 
 
 ;; smart-hungry-delete
@@ -247,6 +252,29 @@
 (diminish 'projectile-mode "pj")
 
 
+;; org-bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode)))
+
+
+;; org-uimage
+(require 'uimage)
+(add-hook 'org-mode-hook 'uimage-mode)
+
+
+;; matlab-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/matlab-mode")
+(require 'matlab)
+(autoload 'matlab-mode "matlab" "Enter MATLAB mode." t)
+(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
+(autoload 'matlab-shell "matlab" "Interactive MATLAB mode." t)
+(autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+(setq matlab-indent-function t)
+(setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
+(setq matlab-shell-command-switches (list "-nodesktop"))
+
+
+
 ;; ------------------------------- code --------------------------------
 
 
@@ -268,6 +296,7 @@
 
 ;; flycheck
 (require 'flycheck)
+(require 'flycheck-matlab-mlint)
 (global-flycheck-mode t)
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
@@ -279,9 +308,15 @@
 
 ;; company & company-irony
 (global-company-mode t)
+(add-to-list 'company-backends 'company-matlab)
 (setq company-idle-delay 0)
 (setq company-show-numbers t)
-(setq company-minimum-prefix-length 2)
+(setq company-minimum-prefix-length 3)
+
+;;(add-hook 'c-mode-hook 'company-mode)
+;;(add-hook 'c++-mode-hook 'company-mode)
+;;(add-hook 'python-mode-hook 'company-mode)
+;;(add-hook 'elisp-mode 'company-mode)
 
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
@@ -296,10 +331,10 @@
 ;;  workon "dev"
 (pyvenv-workon "dev")
 
-
-
 ;; ein
 ;;(require 'ein)
+
+
 
 
 
