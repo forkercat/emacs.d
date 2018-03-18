@@ -43,6 +43,7 @@
 (global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
 
 ;; ace-jump-mode
+(global-set-key (kbd "M-l") 'ace-jump-line-mode)
 (global-set-key (kbd "M-s") 'ace-jump-mode)
 
 ;; indent-region

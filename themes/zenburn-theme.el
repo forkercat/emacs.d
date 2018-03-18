@@ -126,7 +126,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(link ((t (:foreground ,zenburn-yellow :underline t :weight bold))))
    `(link-visited ((t (:foreground ,zenburn-yellow-2 :underline t :weight normal))))
    `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
-   `(cursor ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
+   `(cursor ((t (:foreground ,zenburn-fg :background ,"#E1E1E1"))))
    `(escape-glyph ((t (:foreground ,zenburn-yellow :weight bold))))
    `(fringe ((t (:foreground ,zenburn-fg :background ,zenburn-bg+1))))
    `(header-line ((t (:foreground ,zenburn-yellow
@@ -884,7 +884,7 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:underline t))))
 ;;;;; magit
 ;;;;;; headings and diffs
-   `(magit-section-highlight           ((t (:background ,zenburn-bg+05))))
+   `(magit-section-highlight           ((t (:background ,"zenburn-bg+05"))))
    `(magit-section-heading             ((t (:foreground ,zenburn-yellow :weight bold))))
    `(magit-section-heading-selection   ((t (:foreground ,zenburn-orange :weight bold))))
 

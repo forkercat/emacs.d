@@ -104,6 +104,7 @@
 ;; 
 ;; enable a more powerful jump back function from ace jump mode
 ;;
+(require 'ace-jump-mode)
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
@@ -112,6 +113,7 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (setq ace-jump-mode-submode-list '(ace-jump-word-mode ace-jump-line-mode))
+(setq ace-jump-mode-scope 'frame)
 
 
 ;; popwin
