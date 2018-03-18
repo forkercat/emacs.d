@@ -296,13 +296,11 @@
 
 ;; flycheck
 (require 'flycheck)
+(require 'flycheck-matlab-mlint)
 (global-flycheck-mode t)
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-(eval-after-load 'flycheck
-  '(require 'flycheck-matlab-mlint))
 
 ;; flycheck-pos-tip
 (with-eval-after-load 'flycheck(flycheck-pos-tip-mode))
