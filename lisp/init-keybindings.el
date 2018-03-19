@@ -78,7 +78,7 @@
 
 ;; expand-region
 (global-set-key (kbd "C-q") 'er/expand-region)
-(global-set-key (kbd "S-SPC") 'er/expand-region)
+;; (global-set-key (kbd "S-SPC") 'er/expand-region)  it causes a conflict!!!!
 (global-set-key (kbd "C-c q") 'er/contract-region)
 ;; (global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
 

@@ -274,7 +274,7 @@
 (setq matlab-indent-function t)
 (setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
 (setq matlab-shell-command-switches (list "-nodesktop"))
-
+(setq matlab-verify-on-save-flag nil)
 
 
 ;; ------------------------------- code --------------------------------
@@ -311,7 +311,8 @@
 ;; company & company-irony
 (global-company-mode t)
 (add-to-list 'company-backends 'company-matlab)
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.3)
+(setq company-dabbrev-downcase 0)
 (setq company-show-numbers t)
 (setq company-minimum-prefix-length 3)
 
