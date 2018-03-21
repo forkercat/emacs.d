@@ -3,7 +3,7 @@
 
 ;; make comments
 (global-set-key (kbd "C-/") 'toggle-comment-on-line)
-(global-set-key (kbd "C-?") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-M-/") 'comment-or-uncomment-region)
 
 ;; get rid of suspension! press C-g-z to redo!
 (global-set-key (kbd "C-z") 'undo)

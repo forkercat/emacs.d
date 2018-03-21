@@ -37,6 +37,11 @@
       '(("PENDING" . "#27BDAD") ("CANCELED" . "#D33535")
         ))
 
+;; priority
+(setq org-priority-faces '((?A . (:foreground "red" :weight 'bold))
+                           (?B . (:foreground "yellow"))
+                           (?C . (:foreground "green"))))
+
 ;; open my todo.org
 (defun open-my-todo-org ()
   (interactive)
