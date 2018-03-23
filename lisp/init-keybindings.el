@@ -120,6 +120,8 @@
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition)
 (define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
+(global-set-key (kbd "<f1>") 'elpy-shell-switch-to-shell)
+
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
