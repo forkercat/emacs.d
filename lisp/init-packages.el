@@ -307,16 +307,16 @@
 
 
 ;; company & company-irony
-(global-company-mode t)
+;;(global-company-mode t)
 (add-to-list 'company-backends 'company-matlab)
 (setq company-idle-delay 0)
 (setq company-show-numbers t)
 (setq company-minimum-prefix-length 3)
 
-;;(add-hook 'c-mode-hook 'company-mode)
-;;(add-hook 'c++-mode-hook 'company-mode)
-;;(add-hook 'python-mode-hook 'company-mode)
-;;(add-hook 'elisp-mode 'company-mode)
+(add-hook 'c-mode-hook 'company-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'python-mode-hook 'company-mode)
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
 
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
