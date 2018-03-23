@@ -70,8 +70,7 @@
 
 ;; src-templates
 (add-to-list 'org-structure-template-alist
-             '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
-             '("py" "#+BEGIN_SRC python\n?\n#+END_SRC"))
+             '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 
 ;; visual-line-mode
 (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))

@@ -16,7 +16,7 @@
 
 ;; match
 (require 'electric)
-(electric-pair-mode t)
+(electric-pair-mode nil)
 (electric-indent-mode t)
 
 ;;没有提示音,也不闪屏
