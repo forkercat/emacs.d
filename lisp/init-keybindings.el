@@ -77,10 +77,10 @@
   )
 
 ;; expand-region
-(global-set-key (kbd "C-q") 'er/expand-region)
+(global-set-key (kbd "C-o") 'er/expand-region)
 ;; (global-set-key (kbd "S-SPC") 'er/expand-region)  it causes a conflict!!!!
-(global-set-key (kbd "C-c q") 'er/contract-region)
-;; (global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
+(global-set-key (kbd "C-c o") 'er/contract-region)
+(global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
 
 ;; windresize
 (global-set-key (kbd "C-c w") 'windresize)
@@ -100,6 +100,8 @@
 (global-set-key (kbd "C-c t") 'open-my-todo-org)
 (global-set-key (kbd "C-c n") 'open-my-note-org)
 (global-set-key (kbd "C-c c") 'org-capture)
+(define-key org-mode-map (kbd "C-c s") 'show-subtree)
+(define-key org-mode-map (kbd "C-c h") 'hide-subtree)
 
 ;; popup-kill-ring
 (global-set-key (kbd "M-y") 'popup-kill-ring)

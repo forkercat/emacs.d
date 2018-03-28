@@ -5,7 +5,7 @@
 (setq frame-title-format "emacs@junhaow")
 
 ;; Display line/column number
-(global-linum-mode t)
+;; (global-linum-mode t)
 (line-number-mode t)
 (column-number-mode t)
 
@@ -23,7 +23,7 @@
 (setq default-fill-column 80)
 
 ;;光标闪烁频率
-(setq blink-cursor-interval 0.25)
+(setq blink-cursor-interval 0.23)
 
 ;;光标一直闪烁
 (setq blink-cursor-blinks 0)
@@ -79,9 +79,11 @@
 
 ;; set font-face of headers in org-mode
 (set-face-attribute 'org-level-1 nil :height 1.1 :bold t)
-(set-face-attribute 'org-level-2 nil :height 1.0 :bold t)
+(set-face-attribute 'org-level-2 nil :height 1.1 :bold t)
 (set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
 (set-face-attribute 'org-level-4 nil :height 1.0 :bold t)
+(set-face-attribute 'org-level-5 nil :height 1.0 :bold t)
+(set-face-attribute 'org-level-6 nil :height 1.0 :bold t)
 
 
 ;; background color

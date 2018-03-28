@@ -277,6 +277,10 @@
 (setq matlab-verify-on-save-flag nil)
 
 
+;; nlinum-mode
+(require 'nlinum)
+(global-nlinum-mode)
+
 ;; ------------------------------- code --------------------------------
 
 
