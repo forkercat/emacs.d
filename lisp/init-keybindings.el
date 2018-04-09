@@ -77,10 +77,10 @@
   )
 
 ;; expand-region
-(global-set-key (kbd "C-o") 'er/expand-region)
+(global-set-key (kbd "C-q") 'er/expand-region)
 ;; (global-set-key (kbd "S-SPC") 'er/expand-region)  it causes a conflict!!!!
-(global-set-key (kbd "C-c o") 'er/contract-region)
-(global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
+(global-set-key (kbd "C-c q") 'er/contract-region)
+;; (global-set-key (kbd "C-q") 'open-line) ;; to replace C-o
 
 ;; windresize
 (global-set-key (kbd "C-c w") 'windresize)
@@ -134,6 +134,9 @@
 
 ;; matlab-mode
 (define-key matlab-mode-map (kbd "s-r") 'matlab-shell-run-region-or-line)
+
+;; swith buffer
+;;(global-set-key (kbd "C-x C-o") 'other-window)
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

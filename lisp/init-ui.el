@@ -23,7 +23,7 @@
 (setq default-fill-column 80)
 
 ;;光标闪烁频率
-(setq blink-cursor-interval 0.23)
+(setq blink-cursor-interval 0.21)
 
 ;;光标一直闪烁
 (setq blink-cursor-blinks 0)
