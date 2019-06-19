@@ -8,11 +8,12 @@
 
 ;;可怕的缩进 目前没有其他语言缩进
 (setq-default indent-tabs-mode nil) ; tab 改为插入空格
-(setq default-tab-width 4)
-(setq tab-width 4)
-(setq c-basic-offset 4) ;;c/c++ 缩进4个空格
+(setq default-tab-width 2)
+(setq tab-width 2)
+(setq c-basic-offset 2) ;;c/c++ 缩进4个空格
 (setq c-default-style "linux")   ;;没有这个 { } 就会瞎搞
-(setq python-indent 4)
+(setq python-indent 2)
+(setq java-indent 2)
 (setq python-indent-guess-indent-offset nil)
 
 
