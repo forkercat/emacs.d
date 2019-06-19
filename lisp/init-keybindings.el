@@ -1,4 +1,5 @@
 
+
 ;; ------------------------ init-keybindings.el ----------------------------
 
 ;; make comments
@@ -137,6 +138,8 @@
 
 ;; swith buffer
 ;;(global-set-key (kbd "C-x C-o") 'other-window)
+
+
 
 ;; ------------------------ EOF ----------------------------
 (provide 'init-keybindings)

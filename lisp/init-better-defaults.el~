@@ -1,8 +1,6 @@
 
 ;; ------------------------ init-better-defaults.el ----------------------------
 
-;; 
-
 ;; horrible-tab
 ;;(require 'horrible-tab)
 
@@ -46,7 +44,6 @@
 
 ;; 不生成备份
 (setq make-backup-files nil)
-(setq backup-director-alist (quote (("." . "~/.emacs-backups"))))
 
 ;;设置自动保存的目录
 ;; (setq backup-directory-alist '(("." . "~/.autosave")))

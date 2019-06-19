@@ -32,7 +32,6 @@
 (mouse-avoidance-mode 'animate)
 
 
-
 ;; Theme
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -62,7 +61,7 @@
 
 
 ;; set font size
-(set-face-attribute 'default nil :font "Menlo-13")
+(set-default-font "Monaco 14")
 
 ;; highlight current line
 
@@ -88,8 +87,6 @@
 
 ;; background color
 (set-background-color "#101010")  ; black
-
-
 
 
 ;; ------------------------ EOF ----------------------------

@@ -339,7 +339,7 @@
 (pyvenv-workon "dev")
 
 ;; ein
-;;(require 'ein)
+(require 'ein)
 
 
 
