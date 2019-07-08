@@ -49,7 +49,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode company popwin smartparens markdown-mode exec-path-from-shell flycheck))))
+    (yaml-mode company popwin smartparens markdown-mode exec-path-from-shell flycheck)))
+ '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
