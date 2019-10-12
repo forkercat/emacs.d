@@ -61,7 +61,7 @@
 
 
 ;; set font size
-(set-default-font "Monaco 15")
+(set-default-font "Menlo 15")
 
 ;; highlight current line
 
