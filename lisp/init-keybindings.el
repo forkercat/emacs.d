@@ -1,5 +1,6 @@
 
 
+
 ;; ------------------------ init-keybindings.el ----------------------------
 
 ;; duplicate a line
@@ -120,14 +121,6 @@ there's a region, all lines that region covers will be duplicated."
 ;;(global-set-key (kbd "C-M-n") 'windmove-down)
 ;;(global-set-key (kbd "C-M-p") 'windmove-up)
 
-;; org-mode
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c t") 'open-my-todo-org)
-(global-set-key (kbd "C-c n") 'open-my-note-org)
-(global-set-key (kbd "C-c c") 'org-capture)
-(define-key org-mode-map (kbd "C-c s") 'show-subtree)
-(define-key org-mode-map (kbd "C-c h") 'hide-subtree)
-
 ;; popup-kill-ring
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
@@ -150,6 +143,8 @@ there's a region, all lines that region covers will be duplicated."
 (define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
 (global-set-key (kbd "<f1>") 'elpy-shell-switch-to-shell)
 
+;; find-file
+(global-set-key (kbd "C-x f") 'find-file)
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)

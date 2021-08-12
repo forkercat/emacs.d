@@ -2,7 +2,7 @@
 ;; ------------------------ init-ui.el ----------------------------
 
 ;;改变emacs标题栏的标题
-(setq frame-title-format "emacs@junhaow")
+(setq frame-title-format "品如推荐的 EMACS 编辑器")
 
 ;; Display line/column number
 ;; (global-linum-mode t)
@@ -61,7 +61,7 @@
 
 
 ;; set font size
-(set-default-font "Menlo 15")
+;; (set-default-font "Menlo 14")
 
 ;; highlight current line
 
@@ -75,15 +75,6 @@
 ;; set cursor color
 (setq evil-default-cursor t)
 (set-cursor-color "#E1E1E1")
-
-;; set font-face of headers in org-mode
-(set-face-attribute 'org-level-1 nil :height 1.1 :bold t)
-(set-face-attribute 'org-level-2 nil :height 1.1 :bold t)
-(set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
-(set-face-attribute 'org-level-4 nil :height 1.0 :bold t)
-(set-face-attribute 'org-level-5 nil :height 1.0 :bold t)
-(set-face-attribute 'org-level-6 nil :height 1.0 :bold t)
-
 
 ;; background color
 (set-background-color "#101010")  ; black
